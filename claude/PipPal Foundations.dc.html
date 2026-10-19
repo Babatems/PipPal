@@ -1,0 +1,765 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,400..700;1,14..32,400..700&display=swap">
+<style>
+body{margin:0;background:#EDE8DA;font-family:Inter,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:#C14953;text-decoration:none}a:hover{color:#9B2226}
+@keyframes shimmer{0%{background-position:-200% 0}100%{background-position:200% 0}}
+</style>
+</helmet>
+
+<div style="max-width:1180px;margin:0 auto;padding:48px 32px 120px">
+
+  <div style="display:flex;justify-content:space-between;align-items:baseline;border-bottom:1px solid #D8CFB8;padding-bottom:14px;margin-bottom:40px">
+    <div>
+      <div style="font:700 24px/1.1 Inter;color:#2D2D2A;letter-spacing:-.01em">PipPal Design System</div>
+      <div style="font:400 14px/1.5 Inter;color:#4C4C47;margin-top:4px">Step 1 of 4 — foundations &amp; components. Light mode is primary; dark tokens listed alongside.</div>
+    </div>
+    <div style="font:500 12px/1.4 Inter;color:#848FA5;text-align:right">v0.1<br>spec §3–§6</div>
+  </div>
+
+  <!-- COLOUR -->
+  <div style="font:600 12px/1 Inter;letter-spacing:.12em;text-transform:uppercase;color:#848FA5;margin-bottom:18px">Colour tokens</div>
+  <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:12px;margin-bottom:20px">
+
+    <div style="background:#fff;border:1px solid #E0D9C5;border-radius:12px;overflow:hidden">
+      <div style="height:64px;background:#F5F1E8;border-bottom:1px solid #E0D9C5"></div>
+      <div style="padding:12px 14px">
+        <div style="font:500 14px/1.3 Inter;color:#2D2D2A">colorBackground</div>
+        <div style="font:400 12px/1.5 Inter;color:#848FA5;font-variant-numeric:tabular-nums">#F5F1E8 · dark #1E1E1B</div>
+      </div>
+    </div>
+
+    <div style="background:#fff;border:1px solid #E0D9C5;border-radius:12px;overflow:hidden">
+      <div style="height:64px;background:#FFFFFF;border-bottom:1px solid #E0D9C5"></div>
+      <div style="padding:12px 14px">
+        <div style="font:500 14px/1.3 Inter;color:#2D2D2A">colorSurface</div>
+        <div style="font:400 12px/1.5 Inter;color:#848FA5;font-variant-numeric:tabular-nums">#FFFFFF · dark #2D2D2A</div>
+      </div>
+    </div>
+
+    <div style="background:#fff;border:1px solid #E0D9C5;border-radius:12px;overflow:hidden">
+      <div style="height:64px;background:#E5DCC5;border-bottom:1px solid #E0D9C5"></div>
+      <div style="padding:12px 14px">
+        <div style="font:500 14px/1.3 Inter;color:#2D2D2A">colorSurface2</div>
+        <div style="font:400 12px/1.5 Inter;color:#848FA5;font-variant-numeric:tabular-nums">#E5DCC5 · dark #3A3A36</div>
+      </div>
+    </div>
+
+    <div style="background:#fff;border:1px solid #E0D9C5;border-radius:12px;overflow:hidden">
+      <div style="height:64px;background:#2D2D2A;border-bottom:1px solid #E0D9C5"></div>
+      <div style="padding:12px 14px">
+        <div style="font:500 14px/1.3 Inter;color:#2D2D2A">colorTextPrimary</div>
+        <div style="font:400 12px/1.5 Inter;color:#848FA5;font-variant-numeric:tabular-nums">#2D2D2A · dark #E5DCC5</div>
+      </div>
+    </div>
+
+    <div style="background:#fff;border:1px solid #E0D9C5;border-radius:12px;overflow:hidden">
+      <div style="height:64px;background:#4C4C47;border-bottom:1px solid #E0D9C5"></div>
+      <div style="padding:12px 14px">
+        <div style="font:500 14px/1.3 Inter;color:#2D2D2A">colorTextSecondary</div>
+        <div style="font:400 12px/1.5 Inter;color:#848FA5;font-variant-numeric:tabular-nums">#4C4C47 · dark #B5AE99</div>
+      </div>
+    </div>
+
+    <div style="background:#fff;border:1px solid #E0D9C5;border-radius:12px;overflow:hidden">
+      <div style="height:64px;background:#848FA5;border-bottom:1px solid #E0D9C5"></div>
+      <div style="padding:12px 14px">
+        <div style="font:500 14px/1.3 Inter;color:#2D2D2A">colorAccent / TextMuted</div>
+        <div style="font:400 12px/1.5 Inter;color:#848FA5;font-variant-numeric:tabular-nums">#848FA5 · dark #A0ADBE</div>
+      </div>
+    </div>
+
+    <div style="background:#fff;border:1px solid #E0D9C5;border-radius:12px;overflow:hidden">
+      <div style="height:64px;background:#C14953;border-bottom:1px solid #E0D9C5"></div>
+      <div style="padding:12px 14px">
+        <div style="font:500 14px/1.3 Inter;color:#2D2D2A">colorBrandCrimson</div>
+        <div style="font:400 12px/1.5 Inter;color:#848FA5;font-variant-numeric:tabular-nums">#C14953 · dark #E5717A</div>
+      </div>
+    </div>
+
+    <div style="background:#fff;border:1px solid #E0D9C5;border-radius:12px;overflow:hidden">
+      <div style="height:64px;background:#2A9D5C;border-bottom:1px solid #E0D9C5"></div>
+      <div style="padding:12px 14px">
+        <div style="font:500 14px/1.3 Inter;color:#2D2D2A">colorProfit</div>
+        <div style="font:400 12px/1.5 Inter;color:#848FA5;font-variant-numeric:tabular-nums">#2A9D5C · dark #4DBF7F</div>
+      </div>
+    </div>
+
+    <div style="background:#fff;border:1px solid #E0D9C5;border-radius:12px;overflow:hidden">
+      <div style="height:64px;background:#D4854A;border-bottom:1px solid #E0D9C5"></div>
+      <div style="padding:12px 14px">
+        <div style="font:500 14px/1.3 Inter;color:#2D2D2A">colorWarning</div>
+        <div style="font:400 12px/1.5 Inter;color:#848FA5;font-variant-numeric:tabular-nums">#D4854A · dark #E8A06B</div>
+      </div>
+    </div>
+
+    <div style="background:#fff;border:1px solid #E0D9C5;border-radius:12px;overflow:hidden">
+      <div style="height:64px;background:#E0D9C5;border-bottom:1px solid #E0D9C5"></div>
+      <div style="padding:12px 14px">
+        <div style="font:500 14px/1.3 Inter;color:#2D2D2A">colorBorder</div>
+        <div style="font:400 12px/1.5 Inter;color:#848FA5;font-variant-numeric:tabular-nums">#E0D9C5 · dark #3D3D39</div>
+      </div>
+    </div>
+
+    <div style="background:#fff;border:1px solid #E0D9C5;border-radius:12px;overflow:hidden">
+      <div style="height:64px;background:#9B2226;border-bottom:1px solid #E0D9C5"></div>
+      <div style="padding:12px 14px">
+        <div style="font:500 14px/1.3 Inter;color:#2D2D2A">colorDestructive</div>
+        <div style="font:400 12px/1.5 Inter;color:#848FA5;font-variant-numeric:tabular-nums">#9B2226 · delete only</div>
+      </div>
+    </div>
+  </div>
+
+  <div style="background:#FBF9F3;border:1px solid #E0D9C5;border-left:3px solid #D4854A;border-radius:12px;padding:14px 16px;margin-bottom:16px">
+    <div style="font:500 13px/1.5 Inter;color:#2D2D2A">Accessibility note carried from spec §11.1</div>
+    <div style="font:400 13px/1.6 Inter;color:#4C4C47;max-width:70ch">Slate #848FA5 on the off-white ground measures 3.9:1 — it fails AA for body text. Every use of Slate in this sheet is 13px-or-smaller label, caption or inactive icon. Primary copy is always Charcoal.</div>
+  </div>
+
+  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:48px">
+    <div style="background:#fff;border:1px solid #E0D9C5;border-radius:12px;padding:16px">
+      <div style="font:500 12px/1.4 Inter;color:#848FA5;margin-bottom:10px">PROFIT · 10% tint fill</div>
+      <div style="background:rgba(42,157,92,.10);border-radius:8px;padding:12px 14px;display:flex;justify-content:space-between;align-items:baseline">
+        <span style="font:500 14px/1.3 Inter;color:#2D2D2A">EUR/USD</span>
+        <span style="font:600 18px/1.2 Inter;color:{{ profitColor }};font-variant-numeric:tabular-nums">+$96.00</span>
+      </div>
+    </div>
+    <div style="background:#fff;border:1px solid #E0D9C5;border-radius:12px;padding:16px">
+      <div style="font:500 12px/1.4 Inter;color:#848FA5;margin-bottom:10px">LOSS · 10% tint fill</div>
+      <div style="background:rgba(193,73,83,.10);border-radius:8px;padding:12px 14px;display:flex;justify-content:space-between;align-items:baseline">
+        <span style="font:500 14px/1.3 Inter;color:#2D2D2A">GBP/JPY</span>
+        <span style="font:600 18px/1.2 Inter;color:{{ lossColor }};font-variant-numeric:tabular-nums">−$42.50</span>
+      </div>
+    </div>
+    <div style="background:#fff;border:1px solid #E0D9C5;border-radius:12px;padding:16px">
+      <div style="font:500 12px/1.4 Inter;color:#848FA5;margin-bottom:10px">BREAK-EVEN · amber</div>
+      <div style="background:rgba(212,133,74,.10);border-radius:8px;padding:12px 14px;display:flex;justify-content:space-between;align-items:baseline">
+        <span style="font:500 14px/1.3 Inter;color:#2D2D2A">BTC/USD</span>
+        <span style="font:600 18px/1.2 Inter;color:#D4854A;font-variant-numeric:tabular-nums">$0.00</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- TYPE -->
+  <div style="font:600 12px/1 Inter;letter-spacing:.12em;text-transform:uppercase;color:#848FA5;margin-bottom:18px">Type scale</div>
+  <div style="background:#fff;border:1px solid #E0D9C5;border-radius:12px;padding:8px 24px;margin-bottom:20px">
+    <div style="display:grid;grid-template-columns:170px 1fr 150px;gap:24px;align-items:baseline;padding:18px 0;border-bottom:1px solid #F0EBDD">
+      <span style="font:500 13px/1.4 Inter;color:#848FA5;font-variant-numeric:tabular-nums">displayLarge · 32/38 · 700</span>
+      <span style="font:700 32px/38px Inter;color:#2D2D2A;font-variant-numeric:tabular-nums;letter-spacing:-.02em">+$1,240.50</span>
+      <span style="font:400 13px/1.5 Inter;color:#4C4C47">Hero equity figure</span>
+    </div>
+    <div style="display:grid;grid-template-columns:170px 1fr 150px;gap:24px;align-items:baseline;padding:18px 0;border-bottom:1px solid #F0EBDD">
+      <span style="font:500 13px/1.4 Inter;color:#848FA5;font-variant-numeric:tabular-nums">displayMedium · 26/32 · 600</span>
+      <span style="font:600 26px/32px Inter;color:#2D2D2A;font-variant-numeric:tabular-nums">64.3%</span>
+      <span style="font:400 13px/1.5 Inter;color:#4C4C47">Metric card values</span>
+    </div>
+    <div style="display:grid;grid-template-columns:170px 1fr 150px;gap:24px;align-items:baseline;padding:18px 0;border-bottom:1px solid #F0EBDD">
+      <span style="font:500 13px/1.4 Inter;color:#848FA5;font-variant-numeric:tabular-nums">headlineLarge · 22/28 · 600</span>
+      <span style="font:600 22px/28px Inter;color:#2D2D2A">Journal</span>
+      <span style="font:400 13px/1.5 Inter;color:#4C4C47">Screen titles</span>
+    </div>
+    <div style="display:grid;grid-template-columns:170px 1fr 150px;gap:24px;align-items:baseline;padding:18px 0;border-bottom:1px solid #F0EBDD">
+      <span style="font:500 13px/1.4 Inter;color:#848FA5;font-variant-numeric:tabular-nums">headlineMedium · 20/26 · 600</span>
+      <span style="font:600 20px/26px Inter;color:#2D2D2A">Recent Trades</span>
+      <span style="font:400 13px/1.5 Inter;color:#4C4C47">Card section headers</span>
+    </div>
+    <div style="display:grid;grid-template-columns:170px 1fr 150px;gap:24px;align-items:baseline;padding:18px 0;border-bottom:1px solid #F0EBDD">
+      <span style="font:500 13px/1.4 Inter;color:#848FA5;font-variant-numeric:tabular-nums">headlineSmall · 18/24 · 500</span>
+      <span style="font:500 18px/24px Inter;color:#2D2D2A">Log a Trade</span>
+      <span style="font:400 13px/1.5 Inter;color:#4C4C47">Modal &amp; sheet titles</span>
+    </div>
+    <div style="display:grid;grid-template-columns:170px 1fr 150px;gap:24px;align-items:baseline;padding:18px 0;border-bottom:1px solid #F0EBDD">
+      <span style="font:500 13px/1.4 Inter;color:#848FA5;font-variant-numeric:tabular-nums">titleMedium · 16/22 · 500</span>
+      <span style="font:500 16px/22px Inter;color:#2D2D2A">XAU/USD</span>
+      <span style="font:400 13px/1.5 Inter;color:#4C4C47">List item primaries</span>
+    </div>
+    <div style="display:grid;grid-template-columns:170px 1fr 150px;gap:24px;align-items:baseline;padding:18px 0;border-bottom:1px solid #F0EBDD">
+      <span style="font:500 13px/1.4 Inter;color:#848FA5;font-variant-numeric:tabular-nums">bodyLarge · 15/22 · 400</span>
+      <span style="font:400 15px/22px Inter;color:#2D2D2A">Waited for the retest instead of chasing.</span>
+      <span style="font:400 13px/1.5 Inter;color:#4C4C47">Notes, field values</span>
+    </div>
+    <div style="display:grid;grid-template-columns:170px 1fr 150px;gap:24px;align-items:baseline;padding:18px 0;border-bottom:1px solid #F0EBDD">
+      <span style="font:500 13px/1.4 Inter;color:#848FA5;font-variant-numeric:tabular-nums">bodyMedium · 14/20 · 400</span>
+      <span style="font:400 14px/20px Inter;color:#4C4C47">Secondary descriptions and subtitles.</span>
+      <span style="font:400 13px/1.5 Inter;color:#4C4C47">Secondary body</span>
+    </div>
+    <div style="display:grid;grid-template-columns:170px 1fr 150px;gap:24px;align-items:baseline;padding:18px 0;border-bottom:1px solid #F0EBDD">
+      <span style="font:500 13px/1.4 Inter;color:#848FA5;font-variant-numeric:tabular-nums">bodySmall · 13/18 · 400</span>
+      <span style="font:400 13px/18px Inter;color:#4C4C47">Helper text and form labels.</span>
+      <span style="font:400 13px/1.5 Inter;color:#4C4C47">Helper / labels</span>
+    </div>
+    <div style="display:grid;grid-template-columns:170px 1fr 150px;gap:24px;align-items:baseline;padding:18px 0;border-bottom:1px solid #F0EBDD">
+      <span style="font:500 13px/1.4 Inter;color:#848FA5;font-variant-numeric:tabular-nums">labelLarge · 12/16 · 500</span>
+      <span style="font:500 12px/16px Inter;color:#2D2D2A;letter-spacing:.02em">TREND FOLLOWING</span>
+      <span style="font:400 13px/1.5 Inter;color:#4C4C47">Tags, nav labels</span>
+    </div>
+    <div style="display:grid;grid-template-columns:170px 1fr 150px;gap:24px;align-items:baseline;padding:18px 0">
+      <span style="font:500 13px/1.4 Inter;color:#848FA5;font-variant-numeric:tabular-nums">labelSmall · 11/14 · 400</span>
+      <span style="font:400 11px/14px Inter;color:#848FA5;font-variant-numeric:tabular-nums">14 Jul 2026 · 09:32</span>
+      <span style="font:400 13px/1.5 Inter;color:#4C4C47">Timestamps, footnotes</span>
+    </div>
+  </div>
+  <div style="display:flex;gap:28px;flex-wrap:wrap;margin-bottom:48px">
+    <div style="flex:1;min-width:300px;background:#fff;border:1px solid #E0D9C5;border-radius:12px;padding:18px 20px">
+      <div style="font:500 13px/1.4 Inter;color:#2D2D2A;margin-bottom:10px">Tabular figures are non-negotiable</div>
+      <div style="display:flex;gap:32px">
+        <div>
+          <div style="font:400 11px/14px Inter;color:#848FA5;margin-bottom:6px">PROPORTIONAL — WRONG</div>
+          <div style="font:600 20px/28px Inter;color:#4C4C47;font-variant-numeric:proportional-nums;text-align:right">1,111.11<br>+$96.00<br>−$42.50</div>
+        </div>
+        <div>
+          <div style="font:400 11px/14px Inter;color:#848FA5;margin-bottom:6px">TABULAR — CORRECT</div>
+          <div style="font:600 20px/28px Inter;color:#2D2D2A;font-variant-numeric:tabular-nums;text-align:right">1,111.11<br>+$96.00<br>−$42.50</div>
+        </div>
+      </div>
+    </div>
+    <div style="flex:1;min-width:300px;background:#fff;border:1px solid #E0D9C5;border-radius:12px;padding:18px 20px">
+      <div style="font:500 13px/1.4 Inter;color:#2D2D2A;margin-bottom:12px">Spacing scale — 4px base</div>
+      <div style="display:flex;align-items:flex-end;gap:6px">
+        <div style="width:26px"><div style="height:4px;background:#848FA5"></div><div style="font:400 10px/14px Inter;color:#848FA5;text-align:center">4</div></div>
+        <div style="width:26px"><div style="height:8px;background:#848FA5"></div><div style="font:400 10px/14px Inter;color:#848FA5;text-align:center">8</div></div>
+        <div style="width:26px"><div style="height:12px;background:#848FA5"></div><div style="font:400 10px/14px Inter;color:#848FA5;text-align:center">12</div></div>
+        <div style="width:26px"><div style="height:16px;background:#C14953"></div><div style="font:400 10px/14px Inter;color:#848FA5;text-align:center">16</div></div>
+        <div style="width:26px"><div style="height:20px;background:#848FA5"></div><div style="font:400 10px/14px Inter;color:#848FA5;text-align:center">20</div></div>
+        <div style="width:26px"><div style="height:24px;background:#C14953"></div><div style="font:400 10px/14px Inter;color:#848FA5;text-align:center">24</div></div>
+        <div style="width:26px"><div style="height:32px;background:#848FA5"></div><div style="font:400 10px/14px Inter;color:#848FA5;text-align:center">32</div></div>
+        <div style="width:26px"><div style="height:40px;background:#848FA5"></div><div style="font:400 10px/14px Inter;color:#848FA5;text-align:center">40</div></div>
+        <div style="width:26px"><div style="height:48px;background:#848FA5"></div><div style="font:400 10px/14px Inter;color:#848FA5;text-align:center">48</div></div>
+        <div style="width:26px"><div style="height:64px;background:#848FA5"></div><div style="font:400 10px/14px Inter;color:#848FA5;text-align:center">64</div></div>
+      </div>
+      <div style="font:400 12px/1.6 Inter;color:#4C4C47;margin-top:12px">Red steps are the two defaults: 16px screen padding and internal card padding, 24px between sections.</div>
+    </div>
+  </div>
+
+  <!-- BUTTONS -->
+  <div style="font:600 12px/1 Inter;letter-spacing:.12em;text-transform:uppercase;color:#848FA5;margin-bottom:18px">Buttons — every variant and state</div>
+  <div style="background:#fff;border:1px solid #E0D9C5;border-radius:12px;padding:24px;margin-bottom:48px">
+    <div style="display:grid;grid-template-columns:110px repeat(4,1fr);gap:16px;align-items:center;padding-bottom:12px;border-bottom:1px solid #F0EBDD;margin-bottom:16px">
+      <span></span>
+      <span style="font:500 11px/14px Inter;color:#848FA5;letter-spacing:.08em">DEFAULT</span>
+      <span style="font:500 11px/14px Inter;color:#848FA5;letter-spacing:.08em">PRESSED</span>
+      <span style="font:500 11px/14px Inter;color:#848FA5;letter-spacing:.08em">FOCUSED</span>
+      <span style="font:500 11px/14px Inter;color:#848FA5;letter-spacing:.08em">DISABLED</span>
+    </div>
+
+    <div style="display:grid;grid-template-columns:110px repeat(4,1fr);gap:16px;align-items:center;margin-bottom:18px">
+      <span style="font:500 13px/1.4 Inter;color:#2D2D2A">Primary</span>
+      <button style="height:48px;border:none;border-radius:12px;background:#C14953;color:#fff;font:500 15px/1 Inter;cursor:pointer;padding:0 20px;text-align:left" style-hover="background:#AE414A">Log Trade</button>
+      <button style="height:48px;border:none;border-radius:12px;background:#AE414A;color:#fff;font:500 15px/1 Inter;transform:scale(.97);padding:0 20px;text-align:left">Log Trade</button>
+      <button style="height:48px;border:none;border-radius:12px;background:#C14953;color:#fff;font:500 15px/1 Inter;outline:2px solid #848FA5;outline-offset:2px;padding:0 20px;text-align:left">Log Trade</button>
+      <button style="height:48px;border:none;border-radius:12px;background:#C14953;color:#fff;font:500 15px/1 Inter;opacity:.4;padding:0 20px;text-align:left">Log Trade</button>
+    </div>
+
+    <div style="display:grid;grid-template-columns:110px repeat(4,1fr);gap:16px;align-items:center;margin-bottom:18px">
+      <span style="font:500 13px/1.4 Inter;color:#2D2D2A">Secondary</span>
+      <button style="height:48px;border:1.5px solid #C14953;border-radius:12px;background:#fff;color:#C14953;font:500 15px/1 Inter;cursor:pointer;padding:0 20px;text-align:left" style-hover="background:rgba(193,73,83,.08)">Cancel</button>
+      <button style="height:48px;border:1.5px solid #C14953;border-radius:12px;background:rgba(193,73,83,.08);color:#C14953;font:500 15px/1 Inter;transform:scale(.97);padding:0 20px;text-align:left">Cancel</button>
+      <button style="height:48px;border:1.5px solid #C14953;border-radius:12px;background:#fff;color:#C14953;font:500 15px/1 Inter;outline:2px solid #848FA5;outline-offset:2px;padding:0 20px;text-align:left">Cancel</button>
+      <button style="height:48px;border:1.5px solid #C14953;border-radius:12px;background:#fff;color:#C14953;font:500 15px/1 Inter;opacity:.4;padding:0 20px;text-align:left">Cancel</button>
+    </div>
+
+    <div style="display:grid;grid-template-columns:110px repeat(4,1fr);gap:16px;align-items:center;margin-bottom:18px">
+      <span style="font:500 13px/1.4 Inter;color:#2D2D2A">Ghost</span>
+      <button style="height:48px;border:none;border-radius:12px;background:transparent;color:#848FA5;font:500 15px/1 Inter;cursor:pointer;padding:0 16px;text-align:left" style-hover="background:rgba(132,143,165,.08)">Skip for now</button>
+      <button style="height:48px;border:none;border-radius:12px;background:rgba(132,143,165,.08);color:#848FA5;font:500 15px/1 Inter;transform:scale(.97);padding:0 16px;text-align:left">Skip for now</button>
+      <button style="height:48px;border:none;border-radius:12px;background:transparent;color:#848FA5;font:500 15px/1 Inter;outline:2px solid #848FA5;outline-offset:2px;padding:0 16px;text-align:left">Skip for now</button>
+      <button style="height:48px;border:none;border-radius:12px;background:transparent;color:#848FA5;font:500 15px/1 Inter;opacity:.4;padding:0 16px;text-align:left">Skip for now</button>
+    </div>
+
+    <div style="display:grid;grid-template-columns:110px repeat(4,1fr);gap:16px;align-items:center;margin-bottom:18px">
+      <span style="font:500 13px/1.4 Inter;color:#2D2D2A">Destructive</span>
+      <button style="height:48px;border:none;border-radius:12px;background:#9B2226;color:#fff;font:500 15px/1 Inter;cursor:pointer;padding:0 20px;text-align:left" style-hover="background:#851C20">Delete trade</button>
+      <button style="height:48px;border:none;border-radius:12px;background:#851C20;color:#fff;font:500 15px/1 Inter;transform:scale(.97);padding:0 20px;text-align:left">Delete trade</button>
+      <button style="height:48px;border:none;border-radius:12px;background:#9B2226;color:#fff;font:500 15px/1 Inter;outline:2px solid #848FA5;outline-offset:2px;padding:0 20px;text-align:left">Delete trade</button>
+      <button style="height:48px;border:none;border-radius:12px;background:#9B2226;color:#fff;font:500 15px/1 Inter;opacity:.4;padding:0 20px;text-align:left">Delete trade</button>
+    </div>
+
+    <div style="display:grid;grid-template-columns:110px 1fr;gap:16px;align-items:center;padding-top:18px;border-top:1px solid #F0EBDD">
+      <span style="font:500 13px/1.4 Inter;color:#2D2D2A">Icon &amp; FAB</span>
+      <div style="display:flex;align-items:center;gap:20px;flex-wrap:wrap">
+        <div style="width:40px;height:40px;border-radius:20px;background:transparent;display:grid;place-items:center;cursor:pointer" style-hover="background:#E5DCC5">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2D2D2A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"></polygon></svg>
+        </div>
+        <div style="width:40px;height:40px;border-radius:20px;background:#E5DCC5;display:grid;place-items:center">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2D2D2A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"></path><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"></path></svg>
+        </div>
+        <div style="width:40px;height:40px;border-radius:20px;background:transparent;display:grid;place-items:center;opacity:.4">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2D2D2A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="1"></circle><circle cx="19" cy="12" r="1"></circle><circle cx="5" cy="12" r="1"></circle></svg>
+        </div>
+        <div style="width:1px;height:40px;background:#E0D9C5"></div>
+        <div style="width:56px;height:56px;border-radius:28px;background:#C14953;display:grid;place-items:center;box-shadow:0 4px 16px rgba(193,73,83,.30);cursor:pointer">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round"><path d="M12 5v14"></path><path d="M5 12h14"></path></svg>
+        </div>
+        <div style="height:56px;border-radius:28px;background:#C14953;display:flex;align-items:center;gap:8px;padding:0 22px 0 18px;box-shadow:0 4px 16px rgba(193,73,83,.30);cursor:pointer">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round"><path d="M12 5v14"></path><path d="M5 12h14"></path></svg>
+          <span style="font:500 15px/1 Inter;color:#fff">Log Trade</span>
+        </div>
+        <span style="font:400 12px/1.5 Inter;color:#848FA5;max-width:20ch">Expanded pill appears on tap, collapses on scroll.</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- INPUTS -->
+  <div style="font:600 12px/1 Inter;letter-spacing:.12em;text-transform:uppercase;color:#848FA5;margin-bottom:18px">Inputs</div>
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px;margin-bottom:20px">
+
+    <div style="background:#fff;border:1px solid #E0D9C5;border-radius:12px;padding:20px">
+      <div style="font:500 11px/14px Inter;color:#848FA5;letter-spacing:.08em;margin-bottom:14px">TEXT — DEFAULT / FOCUSED / ERROR</div>
+      <div style="display:flex;flex-direction:column;gap:16px">
+        <div style="border:1px solid #E0D9C5;border-radius:12px;height:48px;padding:0 14px;display:flex;align-items:center;background:#fff">
+          <span style="font:400 14px/20px Inter;color:#848FA5">Instrument</span>
+        </div>
+        <div>
+          <div style="border:1.5px solid #848FA5;border-radius:12px;height:48px;padding:0 14px;display:flex;flex-direction:column;justify-content:center;background:#fff">
+            <span style="font:400 11px/12px Inter;color:#848FA5">Instrument</span>
+            <span style="font:400 14px/18px Inter;color:#2D2D2A">EUR/USD</span>
+          </div>
+        </div>
+        <div>
+          <div style="border:1.5px solid #C14953;border-radius:12px;height:48px;padding:0 14px;display:flex;flex-direction:column;justify-content:center;background:#fff">
+            <span style="font:400 11px/12px Inter;color:#C14953">Instrument</span>
+            <span style="font:400 14px/18px Inter;color:#2D2D2A">EURUS</span>
+          </div>
+          <div style="display:flex;gap:6px;align-items:center;margin-top:6px">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#C14953" stroke-width="2.2" stroke-linecap="round"><circle cx="12" cy="12" r="10"></circle><path d="M12 8v4"></path><path d="M12 16h.01"></path></svg>
+            <span style="font:400 11px/14px Inter;color:#C14953">Not a recognised instrument.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div style="background:#fff;border:1px solid #E0D9C5;border-radius:12px;padding:20px">
+      <div style="font:500 11px/14px Inter;color:#848FA5;letter-spacing:.08em;margin-bottom:14px">NUMBER · PICKER · DATE</div>
+      <div style="display:flex;flex-direction:column;gap:16px">
+        <div style="border:1px solid #E0D9C5;border-radius:12px;height:48px;padding:0 14px;display:flex;align-items:center;justify-content:space-between;background:#fff">
+          <span style="font:400 11px/12px Inter;color:#848FA5">Entry price</span>
+          <span style="font:400 15px/18px Inter;color:#2D2D2A;font-variant-numeric:tabular-nums">1.08420</span>
+        </div>
+        <div style="border:1px solid #E0D9C5;border-radius:12px;height:48px;padding:0 14px;display:flex;align-items:center;justify-content:space-between;background:#fff;cursor:pointer">
+          <span style="font:400 14px/20px Inter;color:#2D2D2A">Lot size</span>
+          <div style="display:flex;align-items:center;gap:8px">
+            <span style="font:400 14px/20px Inter;color:#4C4C47;font-variant-numeric:tabular-nums">0.10</span>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#848FA5" stroke-width="2" stroke-linecap="round"><path d="m9 18 6-6-6-6"></path></svg>
+          </div>
+        </div>
+        <div style="border:1px solid #E0D9C5;border-radius:12px;height:48px;padding:0 14px;display:flex;align-items:center;justify-content:space-between;background:#fff;cursor:pointer">
+          <span style="font:400 14px/20px Inter;color:#2D2D2A;font-variant-numeric:tabular-nums">14 Jul 2026 · 09:32</span>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#848FA5" stroke-width="2" stroke-linecap="round"><rect x="3" y="4" width="18" height="18" rx="2"></rect><path d="M16 2v4M8 2v4M3 10h18"></path></svg>
+        </div>
+      </div>
+    </div>
+
+    <div style="background:#fff;border:1px solid #E0D9C5;border-radius:12px;padding:20px">
+      <div style="font:500 11px/14px Inter;color:#848FA5;letter-spacing:.08em;margin-bottom:14px">SEARCH · TOGGLE · SEGMENTED</div>
+      <div style="display:flex;flex-direction:column;gap:16px">
+        <div style="border:1px solid #E0D9C5;border-radius:12px;height:48px;padding:0 14px;display:flex;align-items:center;gap:10px;background:#F5F1E8">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#848FA5" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg>
+          <span style="font:400 14px/20px Inter;color:#848FA5">Search instrument, notes…</span>
+        </div>
+        <div style="display:flex;align-items:center;justify-content:space-between">
+          <span style="font:400 14px/20px Inter;color:#2D2D2A">Daily reminder</span>
+          <div style="width:51px;height:31px;border-radius:16px;background:#C14953;position:relative">
+            <div style="width:27px;height:27px;border-radius:14px;background:#fff;position:absolute;top:2px;left:22px;box-shadow:0 1px 3px rgba(0,0,0,.2)"></div>
+          </div>
+        </div>
+        <div style="display:flex;background:#E5DCC5;border-radius:10px;padding:3px">
+          <div style="flex:1;height:36px;border-radius:8px;background:#2A9D5C;display:grid;place-items:center"><span style="font:500 14px/1 Inter;color:#fff">BUY</span></div>
+          <div style="flex:1;height:36px;border-radius:8px;display:grid;place-items:center"><span style="font:500 14px/1 Inter;color:#4C4C47">SELL</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div style="background:#fff;border:1px solid #E0D9C5;border-radius:12px;padding:20px">
+      <div style="font:500 11px/14px Inter;color:#848FA5;letter-spacing:.08em;margin-bottom:14px">TEXTAREA — NOTES</div>
+      <div style="border:1.5px solid #848FA5;border-radius:12px;min-height:100px;padding:12px 14px;background:#fff">
+        <span style="font:400 15px/22px Inter;color:#2D2D2A">Waited for the 15m retest instead of chasing the breakout. Followed the plan.</span>
+      </div>
+      <div style="display:flex;justify-content:space-between;margin-top:6px">
+        <span style="font:400 11px/14px Inter;color:#848FA5">What happened? Why this trade?</span>
+        <span style="font:400 11px/14px Inter;color:#848FA5;font-variant-numeric:tabular-nums">78 / 500</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- TAGS -->
+  <div style="background:#fff;border:1px solid #E0D9C5;border-radius:12px;padding:20px;margin-bottom:48px">
+    <div style="font:500 11px/14px Inter;color:#848FA5;letter-spacing:.08em;margin-bottom:14px">TAGS &amp; CHIPS — 24dp, 6px radius</div>
+    <div style="display:flex;flex-wrap:wrap;gap:8px;align-items:center">
+      <span style="height:24px;border-radius:6px;background:rgba(42,157,92,.12);color:#1F7A46;font:500 12px/24px Inter;padding:0 10px">BUY</span>
+      <span style="height:24px;border-radius:6px;background:rgba(193,73,83,.12);color:#A03B44;font:500 12px/24px Inter;padding:0 10px">SELL</span>
+      <span style="height:24px;border-radius:6px;background:#E5DCC5;color:#4C4C47;font:500 12px/24px Inter;padding:0 10px">Trend Following</span>
+      <span style="height:24px;border-radius:6px;background:#E5DCC5;color:#4C4C47;font:500 12px/24px Inter;padding:0 10px">Breakout</span>
+      <span style="height:24px;border-radius:6px;border:1px solid #E0D9C5;color:#4C4C47;font:500 12px/22px Inter;padding:0 10px">Reversal</span>
+      <span style="height:24px;border-radius:6px;background:rgba(212,133,74,.14);color:#A9622F;font:500 12px/24px Inter;padding:0 10px">Pending</span>
+      <span style="height:24px;border-radius:6px;background:#C14953;color:#fff;font:500 12px/24px Inter;padding:0 8px 0 10px;display:inline-flex;align-items:center;gap:5px">Selected
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round"><path d="M20 6 9 17l-5-5"></path></svg>
+      </span>
+      <div style="width:1px;height:24px;background:#E0D9C5;margin:0 4px"></div>
+      <span style="height:32px;border-radius:8px;background:rgba(193,73,83,.12);color:#C14953;font:500 13px/32px Inter;padding:0 12px">This Month</span>
+      <span style="height:32px;border-radius:8px;background:#E5DCC5;color:#4C4C47;font:500 13px/32px Inter;padding:0 12px">All Time</span>
+      <span style="font:400 12px/1.5 Inter;color:#848FA5;margin-left:4px">Date-range chips are 32dp — taller than tags, same family.</span>
+    </div>
+  </div>
+
+  <!-- CARDS -->
+  <div style="font:600 12px/1 Inter;letter-spacing:.12em;text-transform:uppercase;color:#848FA5;margin-bottom:18px">Cards</div>
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(330px,1fr));gap:16px;margin-bottom:20px">
+
+    <div>
+      <div style="font:500 11px/14px Inter;color:#848FA5;letter-spacing:.08em;margin-bottom:10px">METRIC SUMMARY — 2-COL GRID, 88dp</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+        <div style="background:#fff;border:1px solid #E0D9C5;border-radius:12px;padding:14px 16px;height:88px;box-sizing:border-box;display:flex;flex-direction:column;justify-content:space-between">
+          <span style="font:400 11px/14px Inter;color:#848FA5">TOTAL PIPS</span>
+          <div style="display:flex;justify-content:space-between;align-items:flex-end">
+            <span style="font:600 26px/32px Inter;color:#2D2D2A;font-variant-numeric:tabular-nums">+186</span>
+            <span style="display:inline-flex;align-items:center;gap:3px;font:500 12px/16px Inter;color:#2A9D5C;font-variant-numeric:tabular-nums">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#2A9D5C" stroke-width="3" stroke-linecap="round"><path d="m5 12 7-7 7 7"></path><path d="M12 19V5"></path></svg>12%
+            </span>
+          </div>
+        </div>
+        <div style="background:#fff;border:1px solid #E0D9C5;border-radius:12px;padding:14px 16px;height:88px;box-sizing:border-box;display:flex;flex-direction:column;justify-content:space-between">
+          <span style="font:400 11px/14px Inter;color:#848FA5">WIN RATE</span>
+          <div style="display:flex;justify-content:space-between;align-items:flex-end">
+            <span style="font:600 26px/32px Inter;color:#2D2D2A;font-variant-numeric:tabular-nums">64.3%</span>
+            <span style="display:inline-flex;align-items:center;gap:3px;font:500 12px/16px Inter;color:#C14953;font-variant-numeric:tabular-nums">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#C14953" stroke-width="3" stroke-linecap="round"><path d="m19 12-7 7-7-7"></path><path d="M12 5v14"></path></svg>3%
+            </span>
+          </div>
+        </div>
+        <div style="background:#fff;border:1px solid #E0D9C5;border-radius:12px;padding:14px 16px;height:88px;box-sizing:border-box;display:flex;flex-direction:column;justify-content:space-between">
+          <span style="font:400 11px/14px Inter;color:#848FA5">LOADING</span>
+          <div style="height:32px;border-radius:8px;background:linear-gradient(90deg,#EFEADC 25%,#D4CDB9 50%,#EFEADC 75%);background-size:200% 100%;animation:shimmer 1.4s infinite linear"></div>
+        </div>
+        <div style="background:#fff;border:1px solid #E0D9C5;border-radius:12px;padding:14px 16px;height:88px;box-sizing:border-box;display:flex;flex-direction:column;justify-content:space-between">
+          <span style="font:400 11px/14px Inter;color:#848FA5">EMPTY</span>
+          <span style="font:600 26px/32px Inter;color:#C9C1AC;font-variant-numeric:tabular-nums">—</span>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div style="font:500 11px/14px Inter;color:#848FA5;letter-spacing:.08em;margin-bottom:10px">TRADE LIST CARD — FULL WIDTH, 80dp</div>
+      <div style="display:flex;flex-direction:column;gap:8px">
+        <div style="background:#fff;border:1px solid #E0D9C5;border-radius:12px;padding:12px 14px">
+          <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8px">
+            <div style="display:flex;align-items:center;gap:8px">
+              <span style="font:500 16px/22px Inter;color:#2D2D2A">EUR/USD</span>
+              <span style="height:20px;border-radius:6px;background:rgba(42,157,92,.12);color:#1F7A46;font:500 11px/20px Inter;padding:0 7px">BUY</span>
+            </div>
+            <span style="font:600 17px/22px Inter;color:#2A9D5C;font-variant-numeric:tabular-nums">+$96.00</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:baseline">
+            <span style="font:400 12px/16px Inter;color:#4C4C47;font-variant-numeric:tabular-nums">1.08420 → 1.08900</span>
+            <span style="font:500 12px/16px Inter;color:#2A9D5C;font-variant-numeric:tabular-nums">+48.0 pips</span>
+          </div>
+          <div style="display:flex;gap:10px;margin-top:6px">
+            <span style="font:400 11px/14px Inter;color:#848FA5;font-variant-numeric:tabular-nums">14 Jul · 09:32</span>
+            <span style="font:400 11px/14px Inter;color:#848FA5">·</span>
+            <span style="font:400 11px/14px Inter;color:#848FA5;font-variant-numeric:tabular-nums">2h 14m</span>
+            <span style="font:400 11px/14px Inter;color:#848FA5">·</span>
+            <span style="font:400 11px/14px Inter;color:#848FA5;font-variant-numeric:tabular-nums">RR 1:2.0</span>
+          </div>
+        </div>
+        <div style="display:flex;gap:8px;height:80px">
+          <div style="width:60px;background:#848FA5;border-radius:12px 0 0 12px;display:grid;place-items:center">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"></path><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"></path></svg>
+          </div>
+          <div style="flex:1;background:#fff;border:1px solid #E0D9C5;border-radius:0;padding:12px 14px;display:flex;flex-direction:column;justify-content:center">
+            <div style="display:flex;justify-content:space-between;align-items:center">
+              <span style="font:500 16px/22px Inter;color:#2D2D2A">GBP/JPY</span>
+              <span style="font:600 17px/22px Inter;color:#C14953;font-variant-numeric:tabular-nums">−$42.50</span>
+            </div>
+            <span style="font:400 11px/14px Inter;color:#848FA5;margin-top:4px">Swipe right to edit, left to delete</span>
+          </div>
+          <div style="width:60px;background:#9B2226;border-radius:0 12px 12px 0;display:grid;place-items:center">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18"></path><path d="M19 6l-1 14H6L5 6"></path><path d="M10 11v6M14 11v6"></path></svg>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(330px,1fr));gap:16px;margin-bottom:48px">
+    <div>
+      <div style="font:500 11px/14px Inter;color:#848FA5;letter-spacing:.08em;margin-bottom:10px">CALENDAR DAY CELL — 52dp, 7-COL</div>
+      <div style="background:#fff;border:1px solid #E0D9C5;border-radius:12px;padding:14px">
+        <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-bottom:12px">
+          <div style="height:52px;border-radius:8px;background:rgba(42,157,92,.25);padding:5px 6px;box-sizing:border-box;display:flex;flex-direction:column;justify-content:space-between">
+            <span style="font:400 11px/14px Inter;color:#2D2D2A;font-variant-numeric:tabular-nums">14</span>
+            <span style="font:500 11px/14px Inter;color:#1F7A46;font-variant-numeric:tabular-nums;text-align:right">+96</span>
+          </div>
+          <div style="height:52px;border-radius:8px;background:rgba(193,73,83,.25);padding:5px 6px;box-sizing:border-box;display:flex;flex-direction:column;justify-content:space-between">
+            <span style="font:400 11px/14px Inter;color:#2D2D2A;font-variant-numeric:tabular-nums">15</span>
+            <span style="font:500 11px/14px Inter;color:#A03B44;font-variant-numeric:tabular-nums;text-align:right">−43</span>
+          </div>
+          <div style="height:52px;border-radius:8px;background:#E5DCC5;padding:5px 6px;box-sizing:border-box">
+            <span style="font:400 11px/14px Inter;color:#2D2D2A;font-variant-numeric:tabular-nums">16</span>
+          </div>
+          <div style="height:52px;border-radius:8px;background:rgba(42,157,92,.25);border:1.5px solid #848FA5;padding:5px 6px;box-sizing:border-box;display:flex;flex-direction:column;justify-content:space-between">
+            <span style="font:600 11px/14px Inter;color:#2D2D2A;font-variant-numeric:tabular-nums">17</span>
+            <span style="font:500 11px/14px Inter;color:#1F7A46;font-variant-numeric:tabular-nums;text-align:right">+12</span>
+          </div>
+        </div>
+        <div style="display:flex;gap:14px;flex-wrap:wrap">
+          <span style="display:inline-flex;align-items:center;gap:6px;font:400 11px/14px Inter;color:#4C4C47"><span style="width:12px;height:12px;border-radius:3px;background:rgba(42,157,92,.25)"></span>Profit day</span>
+          <span style="display:inline-flex;align-items:center;gap:6px;font:400 11px/14px Inter;color:#4C4C47"><span style="width:12px;height:12px;border-radius:3px;background:rgba(193,73,83,.25)"></span>Loss day</span>
+          <span style="display:inline-flex;align-items:center;gap:6px;font:400 11px/14px Inter;color:#4C4C47"><span style="width:12px;height:12px;border-radius:3px;background:#E5DCC5"></span>No trades</span>
+          <span style="display:inline-flex;align-items:center;gap:6px;font:400 11px/14px Inter;color:#4C4C47"><span style="width:12px;height:12px;border-radius:3px;background:rgba(42,157,92,.25);border:1.5px solid #848FA5;box-sizing:border-box"></span>Today / selected</span>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div style="font:500 11px/14px Inter;color:#848FA5;letter-spacing:.08em;margin-bottom:10px">CHART CARD + SECTION HEADER</div>
+      <div style="background:#fff;border:1px solid #E0D9C5;border-radius:12px;padding:16px">
+        <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:2px">
+          <span style="font:500 18px/24px Inter;color:#2D2D2A">Equity Curve</span>
+          <span style="font:500 12px/16px Inter;color:#848FA5">See all</span>
+        </div>
+        <span style="font:400 13px/18px Inter;color:#4C4C47">This month · 42 trades</span>
+        <svg viewBox="0 0 320 120" style="width:100%;height:120px;display:block;margin-top:10px" preserveAspectRatio="none">
+          <defs><linearGradient id="pp-eq" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2A9D5C" stop-opacity=".22"></stop><stop offset="1" stop-color="#2A9D5C" stop-opacity="0"></stop></linearGradient></defs>
+          <path d="M0 96 L36 88 L72 94 L108 70 L144 76 L180 52 L216 58 L252 34 L288 26 L320 14 L320 120 L0 120 Z" fill="url(#pp-eq)"></path>
+          <path d="M0 96 L36 88 L72 94 L108 70 L144 76 L180 52 L216 58 L252 34 L288 26 L320 14" fill="none" stroke="#2A9D5C" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"></path>
+        </svg>
+        <div style="display:flex;justify-content:space-between;margin-top:6px">
+          <span style="font:400 11px/14px Inter;color:#848FA5">1 Jul</span>
+          <span style="font:400 11px/14px Inter;color:#848FA5">31 Jul</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- NAV -->
+  <div style="font:600 12px/1 Inter;letter-spacing:.12em;text-transform:uppercase;color:#848FA5;margin-bottom:18px">Navigation</div>
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(330px,1fr));gap:16px;margin-bottom:48px">
+    <div>
+      <div style="font:500 11px/14px Inter;color:#848FA5;letter-spacing:.08em;margin-bottom:10px">APP BAR — 56dp, BORDER NOT SHADOW</div>
+      <div style="background:#fff;border:1px solid #E0D9C5;border-radius:12px;overflow:hidden">
+        <div style="height:56px;display:flex;align-items:center;justify-content:space-between;padding:0 16px;border-bottom:1px solid #E0D9C5">
+          <svg width="18.29" height="26" viewBox="30 -1 83 118"><path d="M32 2 H52 V100 L32 116 Z" fill="#2D2D2A"></path><path d="M52 14 A35 35 0 0 1 52 84 L52 64 A15 15 0 0 0 52 34 Z" fill="#2D2D2A"></path><rect x="98" y="22" width="4" height="54" fill="#2A9D5C"></rect><rect x="89" y="34" width="22" height="30" fill="#2A9D5C"></rect></svg>
+          <div style="width:40px;height:40px;border-radius:20px;background:#E5DCC5;display:grid;place-items:center">
+            <span style="font:500 14px/1 Inter;color:#4C4C47">AK</span>
+          </div>
+        </div>
+        <div style="height:56px;display:flex;align-items:center;gap:12px;padding:0 16px;border-bottom:1px solid #E0D9C5">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2D2D2A" stroke-width="2" stroke-linecap="round"><path d="m15 18-6-6 6-6"></path></svg>
+          <span style="font:600 22px/28px Inter;color:#2D2D2A">EUR/USD</span>
+        </div>
+        <div style="padding:12px 16px;background:#F5F1E8">
+          <span style="font:400 12px/1.5 Inter;color:#4C4C47">Left: the mark alone (icon-only, no wordmark) or a back arrow. Right: avatar, or edit + more. Never an elevation shadow.</span>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div style="font:500 11px/14px Inter;color:#848FA5;letter-spacing:.08em;margin-bottom:10px">BOTTOM NAV — 56dp + SAFE AREA</div>
+      <div style="background:#F5F1E8;border:1px solid #E0D9C5;border-radius:12px;overflow:hidden;position:relative;padding-top:88px">
+        <div style="position:absolute;right:16px;top:16px;width:56px;height:56px;border-radius:28px;background:#C14953;display:grid;place-items:center;box-shadow:0 4px 16px rgba(193,73,83,.30);z-index:2">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round"><path d="M12 5v14"></path><path d="M5 12h14"></path></svg>
+        </div>
+        <div style="background:#fff;border-top:1px solid #E0D9C5;height:56px;display:grid;grid-template-columns:repeat(4,1fr)">
+          <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;position:relative">
+            <div style="position:absolute;top:5px;width:16px;height:3px;border-radius:2px;background:#C14953"></div>
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="#C14953" stroke="#C14953" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="m3 10 9-7 9 7v10a1 1 0 0 1-1 1h-5v-7H9v7H4a1 1 0 0 1-1-1z"></path></svg>
+            <span style="font:500 11px/14px Inter;color:#C14953">Dashboard</span>
+          </div>
+          <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#848FA5" stroke-width="2" stroke-linecap="round"><path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"></path></svg>
+            <span style="font:400 11px/14px Inter;color:#848FA5">Journal</span>
+          </div>
+          <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#848FA5" stroke-width="2" stroke-linecap="round"><rect x="3" y="4" width="18" height="18" rx="2"></rect><path d="M16 2v4M8 2v4M3 10h18"></path></svg>
+            <span style="font:400 11px/14px Inter;color:#848FA5">Calendar</span>
+          </div>
+          <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#848FA5" stroke-width="2" stroke-linecap="round"><path d="M3 3v18h18"></path><path d="m7 15 4-5 3 3 4-6"></path></svg>
+            <span style="font:400 11px/14px Inter;color:#848FA5">Analytics</span>
+          </div>
+        </div>
+        <div style="height:22px;background:#fff;display:grid;place-items:center"><div style="width:120px;height:4px;border-radius:2px;background:#D8CFB8"></div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FEEDBACK -->
+  <div style="font:600 12px/1 Inter;letter-spacing:.12em;text-transform:uppercase;color:#848FA5;margin-bottom:18px">Feedback &amp; status</div>
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px;margin-bottom:48px">
+    <div style="display:flex;flex-direction:column;gap:12px">
+      <div style="background:#2D2D2A;border-radius:12px;height:48px;display:flex;align-items:center;justify-content:space-between;padding:0 16px">
+        <span style="font:400 14px/20px Inter;color:#fff">Trade saved to your journal.</span>
+        <span style="font:500 14px/20px Inter;color:#E5717A">View</span>
+      </div>
+      <div style="background:#fff;border:1px solid #E0D9C5;border-left:3px solid #C14953;border-radius:12px;padding:10px 14px;display:flex;gap:8px;align-items:center">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C14953" stroke-width="2.2" stroke-linecap="round"><path d="M12 9v4M12 17h.01"></path><path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0Z"></path></svg>
+        <span style="font:400 11px/14px Inter;color:#C14953">Exit price is required before you can save.</span>
+      </div>
+      <div style="background:#fff;border:1px solid #E0D9C5;border-radius:12px;padding:16px">
+        <div style="font:500 11px/14px Inter;color:#848FA5;letter-spacing:.08em;margin-bottom:12px">SKELETON — NEVER A BARE SPINNER</div>
+        <div style="display:flex;flex-direction:column;gap:8px">
+          <div style="height:14px;width:45%;border-radius:4px;background:linear-gradient(90deg,#EFEADC 25%,#D4CDB9 50%,#EFEADC 75%);background-size:200% 100%;animation:shimmer 1.4s infinite linear"></div>
+          <div style="height:56px;border-radius:8px;background:linear-gradient(90deg,#EFEADC 25%,#D4CDB9 50%,#EFEADC 75%);background-size:200% 100%;animation:shimmer 1.4s .1s infinite linear"></div>
+          <div style="height:14px;width:70%;border-radius:4px;background:linear-gradient(90deg,#EFEADC 25%,#D4CDB9 50%,#EFEADC 75%);background-size:200% 100%;animation:shimmer 1.4s .2s infinite linear"></div>
+        </div>
+      </div>
+    </div>
+
+    <div style="background:rgba(45,45,42,.35);border-radius:12px;display:grid;place-items:center;padding:28px">
+      <div style="background:#fff;border-radius:16px;padding:20px;width:100%;max-width:280px;box-shadow:0 4px 24px rgba(0,0,0,.08)">
+        <div style="font:500 18px/24px Inter;color:#2D2D2A;margin-bottom:6px">Discard this trade?</div>
+        <div style="font:400 14px/20px Inter;color:#4C4C47;margin-bottom:18px">Your entry has unsaved details. This cannot be undone.</div>
+        <div style="display:flex;flex-direction:column;gap:8px">
+          <button style="height:48px;border:none;border-radius:12px;background:#9B2226;color:#fff;font:500 15px/1 Inter;cursor:pointer;padding:0 20px;text-align:left">Discard</button>
+          <button style="height:48px;border:1.5px solid #C14953;border-radius:12px;background:#fff;color:#C14953;font:500 15px/1 Inter;cursor:pointer;padding:0 20px;text-align:left">Keep editing</button>
+        </div>
+      </div>
+    </div>
+
+    <div style="background:#fff;border:1px solid #E0D9C5;border-radius:12px;padding:24px;display:flex;flex-direction:column;align-items:center;text-align:center;gap:14px">
+      <div style="width:120px;height:96px;border:1.5px dashed #D8CFB8;border-radius:12px;display:grid;place-items:center;background:#FBF9F3">
+        <span style="font:400 11px/14px Inter;color:#A9A292;max-width:14ch">Illustration placeholder — awaiting brand asset</span>
+      </div>
+      <div>
+        <div style="font:500 16px/22px Inter;color:#2D2D2A;margin-bottom:4px">No trades yet</div>
+        <div style="font:400 14px/20px Inter;color:#4C4C47;max-width:32ch">Log your first trade and your calendar starts filling in.</div>
+      </div>
+      <button style="height:48px;border:none;border-radius:12px;background:#C14953;color:#fff;font:500 15px/1 Inter;cursor:pointer;padding:0 24px">Log your first trade</button>
+    </div>
+  </div>
+
+  <!-- EMOTION A/B -->
+  <div style="font:600 12px/1 Inter;letter-spacing:.12em;text-transform:uppercase;color:#848FA5;margin-bottom:6px">Emotional state picker — two treatments</div>
+  <div style="font:400 14px/1.6 Inter;color:#4C4C47;max-width:70ch;margin-bottom:18px">You asked to see both. The spec's emoji row is faster to scan and warmer; the drawn set holds the palette and survives dark mode and screenshots better. Tell me which and I'll standardise on it.</div>
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(330px,1fr));gap:16px;margin-bottom:48px">
+    <div style="background:#fff;border:1px solid #E0D9C5;border-radius:12px;padding:18px 20px">
+      <div style="font:500 11px/14px Inter;color:#848FA5;letter-spacing:.08em;margin-bottom:14px">A · EMOJI, AS SPECCED</div>
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
+        <div style="flex:1;min-width:64px;border:1.5px solid #C14953;background:rgba(193,73,83,.08);border-radius:12px;padding:10px 6px;display:flex;flex-direction:column;align-items:center;gap:6px">
+          <span style="font-size:24px;line-height:1">😊</span><span style="font:500 11px/14px Inter;color:#2D2D2A">Confident</span>
+        </div>
+        <div style="flex:1;min-width:64px;border:1px solid #E0D9C5;border-radius:12px;padding:10px 6px;display:flex;flex-direction:column;align-items:center;gap:6px">
+          <span style="font-size:24px;line-height:1">😐</span><span style="font:400 11px/14px Inter;color:#4C4C47">Neutral</span>
+        </div>
+        <div style="flex:1;min-width:64px;border:1px solid #E0D9C5;border-radius:12px;padding:10px 6px;display:flex;flex-direction:column;align-items:center;gap:6px">
+          <span style="font-size:24px;line-height:1">😰</span><span style="font:400 11px/14px Inter;color:#4C4C47">Anxious</span>
+        </div>
+        <div style="flex:1;min-width:64px;border:1px solid #E0D9C5;border-radius:12px;padding:10px 6px;display:flex;flex-direction:column;align-items:center;gap:6px">
+          <span style="font-size:24px;line-height:1">😤</span><span style="font:400 11px/14px Inter;color:#4C4C47">Frustrated</span>
+        </div>
+        <div style="flex:1;min-width:64px;border:1px solid #E0D9C5;border-radius:12px;padding:10px 6px;display:flex;flex-direction:column;align-items:center;gap:6px">
+          <span style="font-size:24px;line-height:1">🎯</span><span style="font:400 11px/14px Inter;color:#4C4C47">Focused</span>
+        </div>
+      </div>
+    </div>
+    <div style="background:#fff;border:1px solid #E0D9C5;border-radius:12px;padding:18px 20px">
+      <div style="font:500 11px/14px Inter;color:#848FA5;letter-spacing:.08em;margin-bottom:14px">B · DRAWN LINE ICONS, BRAND COLOURS</div>
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
+        <div style="flex:1;min-width:64px;border:1.5px solid #C14953;background:rgba(193,73,83,.08);border-radius:12px;padding:10px 6px;display:flex;flex-direction:column;align-items:center;gap:6px">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#C14953" stroke-width="1.8" stroke-linecap="round"><path d="M5 15h14"></path><path d="M9 9h.01M15 9h.01"></path><path d="M4 19V9a8 8 0 0 1 16 0v10"></path></svg>
+          <span style="font:500 11px/14px Inter;color:#2D2D2A">Confident</span>
+        </div>
+        <div style="flex:1;min-width:64px;border:1px solid #E0D9C5;border-radius:12px;padding:10px 6px;display:flex;flex-direction:column;align-items:center;gap:6px">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#4C4C47" stroke-width="1.8" stroke-linecap="round"><path d="M6 15h12"></path><path d="M9 9h.01M15 9h.01"></path><rect x="4" y="4" width="16" height="16" rx="4"></rect></svg>
+          <span style="font:400 11px/14px Inter;color:#4C4C47">Neutral</span>
+        </div>
+        <div style="flex:1;min-width:64px;border:1px solid #E0D9C5;border-radius:12px;padding:10px 6px;display:flex;flex-direction:column;align-items:center;gap:6px">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#4C4C47" stroke-width="1.8" stroke-linecap="round"><path d="M7 17c1.5-2 3-3 5-3s3.5 1 5 3"></path><path d="M8 8l3 2M16 8l-3 2"></path><path d="M4 20V10a8 8 0 0 1 16 0v10"></path></svg>
+          <span style="font:400 11px/14px Inter;color:#4C4C47">Anxious</span>
+        </div>
+        <div style="flex:1;min-width:64px;border:1px solid #E0D9C5;border-radius:12px;padding:10px 6px;display:flex;flex-direction:column;align-items:center;gap:6px">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#4C4C47" stroke-width="1.8" stroke-linecap="round"><path d="M8 16h8"></path><path d="M7 9l3 1M17 9l-3 1"></path><path d="M3 6l3-2M21 6l-3-2"></path><path d="M4 19V11a8 8 0 0 1 16 0v8"></path></svg>
+          <span style="font:400 11px/14px Inter;color:#4C4C47">Frustrated</span>
+        </div>
+        <div style="flex:1;min-width:64px;border:1px solid #E0D9C5;border-radius:12px;padding:10px 6px;display:flex;flex-direction:column;align-items:center;gap:6px">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#4C4C47" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><circle cx="12" cy="12" r="5"></circle><circle cx="12" cy="12" r="1.4" fill="#4C4C47"></circle></svg>
+          <span style="font:400 11px/14px Inter;color:#4C4C47">Focused</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DARK -->
+  <div style="font:600 12px/1 Inter;letter-spacing:.12em;text-transform:uppercase;color:#848FA5;margin-bottom:18px">Dark mode — same components, mapped tokens</div>
+  <div style="background:#1E1E1B;border-radius:12px;padding:24px;margin-bottom:48px">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+        <div style="background:#2D2D2A;border:1px solid #3D3D39;border-radius:12px;padding:14px 16px;height:88px;box-sizing:border-box;display:flex;flex-direction:column;justify-content:space-between">
+          <span style="font:400 11px/14px Inter;color:#6B7A96">TOTAL PIPS</span>
+          <div style="display:flex;justify-content:space-between;align-items:flex-end">
+            <span style="font:600 26px/32px Inter;color:#E5DCC5;font-variant-numeric:tabular-nums">+186</span>
+            <span style="font:500 12px/16px Inter;color:#4DBF7F;font-variant-numeric:tabular-nums">▲12%</span>
+          </div>
+        </div>
+        <div style="background:#2D2D2A;border:1px solid #3D3D39;border-radius:12px;padding:14px 16px;height:88px;box-sizing:border-box;display:flex;flex-direction:column;justify-content:space-between">
+          <span style="font:400 11px/14px Inter;color:#6B7A96">WIN RATE</span>
+          <div style="display:flex;justify-content:space-between;align-items:flex-end">
+            <span style="font:600 26px/32px Inter;color:#E5DCC5;font-variant-numeric:tabular-nums">64.3%</span>
+            <span style="font:500 12px/16px Inter;color:#E5717A;font-variant-numeric:tabular-nums">▼3%</span>
+          </div>
+        </div>
+      </div>
+      <div style="background:#2D2D2A;border:1px solid #3D3D39;border-radius:12px;padding:12px 14px">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
+          <div style="display:flex;align-items:center;gap:8px">
+            <span style="font:500 16px/22px Inter;color:#E5DCC5">EUR/USD</span>
+            <span style="height:20px;border-radius:6px;background:rgba(77,191,127,.16);color:#4DBF7F;font:500 11px/20px Inter;padding:0 7px">BUY</span>
+          </div>
+          <span style="font:600 17px/22px Inter;color:#4DBF7F;font-variant-numeric:tabular-nums">+$96.00</span>
+        </div>
+        <div style="display:flex;justify-content:space-between">
+          <span style="font:400 12px/16px Inter;color:#B5AE99;font-variant-numeric:tabular-nums">1.08420 → 1.08900</span>
+          <span style="font:500 12px/16px Inter;color:#4DBF7F;font-variant-numeric:tabular-nums">+48.0 pips</span>
+        </div>
+      </div>
+      <div style="background:#3A3A36;border-radius:12px;padding:14px">
+        <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:6px">
+          <div style="height:52px;border-radius:8px;background:rgba(77,191,127,.25);padding:5px 6px;box-sizing:border-box;display:flex;flex-direction:column;justify-content:space-between">
+            <span style="font:400 11px/14px Inter;color:#E5DCC5;font-variant-numeric:tabular-nums">14</span>
+            <span style="font:500 11px/14px Inter;color:#4DBF7F;font-variant-numeric:tabular-nums;text-align:right">+96</span>
+          </div>
+          <div style="height:52px;border-radius:8px;background:rgba(229,113,122,.25);padding:5px 6px;box-sizing:border-box;display:flex;flex-direction:column;justify-content:space-between">
+            <span style="font:400 11px/14px Inter;color:#E5DCC5;font-variant-numeric:tabular-nums">15</span>
+            <span style="font:500 11px/14px Inter;color:#E5717A;font-variant-numeric:tabular-nums;text-align:right">−43</span>
+          </div>
+          <div style="height:52px;border-radius:8px;background:#2D2D2A;padding:5px 6px;box-sizing:border-box">
+            <span style="font:400 11px/14px Inter;color:#B5AE99;font-variant-numeric:tabular-nums">16</span>
+          </div>
+          <div style="height:52px;border-radius:8px;background:rgba(77,191,127,.25);border:1.5px solid #A0ADBE;padding:5px 6px;box-sizing:border-box;display:flex;flex-direction:column;justify-content:space-between">
+            <span style="font:600 11px/14px Inter;color:#E5DCC5;font-variant-numeric:tabular-nums">17</span>
+            <span style="font:500 11px/14px Inter;color:#4DBF7F;font-variant-numeric:tabular-nums;text-align:right">+12</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div style="font:400 12px/1.6 Inter;color:#B5AE99;margin-top:16px;max-width:76ch">No pure black. Elevation is carried by the #3D3D39 border, never a shadow. Emerald and crimson lighten to #4DBF7F and #E5717A so P&amp;L text still clears 4.5:1 on the card surface.</div>
+  </div>
+
+  <div style="border-top:1px solid #D8CFB8;padding-top:16px;display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap">
+    <span style="font:400 13px/1.6 Inter;color:#4C4C47;max-width:60ch">Next: the core four screens in a working phone frame — Dashboard, Journal, Calendar with day drawer, Analytics with three hero metrics. Then the Log Trade sheet in three flow variants for you to choose between.</span>
+    <span style="font:400 13px/1.6 Inter;color:#848FA5">Step 1 of 4 complete</span>
+  </div>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;profitColor&quot;:{&quot;editor&quot;:&quot;color&quot;,&quot;default&quot;:&quot;#2A9D5C&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;options&quot;:[&quot;#2A9D5C&quot;,&quot;#1F7A46&quot;,&quot;#3B8EA5&quot;,&quot;#2D7D6E&quot;],&quot;section&quot;:&quot;P&amp;L colours (user-overridable per spec §3.4)&quot;},&quot;lossColor&quot;:{&quot;editor&quot;:&quot;color&quot;,&quot;default&quot;:&quot;#C14953&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;options&quot;:[&quot;#C14953&quot;,&quot;#9B2226&quot;,&quot;#B4553F&quot;,&quot;#8E4B6B&quot;],&quot;section&quot;:&quot;P&amp;L colours (user-overridable per spec §3.4)&quot;}}">
+class Component extends DCLogic {
+  renderVals() {
+    return {
+      profitColor: this.props.profitColor ?? '#2A9D5C',
+      lossColor: this.props.lossColor ?? '#C14953'
+    };
+  }
+}
+</script>
+</body>
+</html>
