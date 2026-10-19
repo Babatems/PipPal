@@ -1,0 +1,1098 @@
+PipPal
+UI / UX Design Specification
+Trading Journal Mobile Application
+iOS & Android · Flutter / Dart · Version 1.0
+Document prepared for: UI/UX Designer
+This document provides complete screen-by-screen design direction, component specifications, colour tokens,
+typography, spacing, animation guidelines, and design system requirements for PipPal.
+
+-- 1 of 33 --
+
+1. Project Overview & Design Philosophy
+1.1 What Is PipPal?
+PipPal is a digital trading journal for Forex, Crypto, and Stock traders that helps them log trades
+manually, visualize their performance through calendar and dashboard views, and build stronger trading
+discipline over time. It is built in Flutter/Dart and targets iOS and Android as a primary-mobile-first
+product.
+1.2 Design Philosophy
+PipPal's visual language is built on two reference pillars blended intentionally:
+Reference 	What We Borrow 	Emphasis
+TraderSync 	Data density, metric card layout, P&L calendar
+cells, performance report structure, trade log
+table rows
+Secondary — data patterns only
+Notion 	Warm off-white backgrounds, soft card borders,
+generous whitespace, clean sans-serif typography,
+muted colour palette, minimal chrome, card
+elevation through soft border not hard shadow
+Primary — dominant aesthetic
+DESIGN DIRECTION The result should feel like a beautifully organised Notion workspace that has been
+purpose-built to track trades. Clean, warm, structured — but with meaningful data visualisation where it counts.
+1.3 Personality & Tone
+The app should sit at a deliberate balance point (5 out of 10) between professional seriousness and
+approachable playfulness. It is not a Bloomberg terminal (cold, dense, intimidating) and it is not a gaming
+app (loud, gamified, distracting). Think: the feeling of opening a well-designed personal notebook that
+takes your work seriously but does not take itself too seriously.
+1.4 Core Design Principles
+• Clarity first — every screen should communicate its primary purpose in under 3 seconds of
+viewing
+• Warm, not cold — cream/off-white backgrounds and muted colours over stark white and neon
+contrasts
+• Data without overwhelm — surface key metrics prominently; nest secondary data in progressive
+disclosure
+• Consistent rhythm — spacing, type scale, and card structure should feel unified across all screens
+• Trust through typography — clean, legible numbers are the single most critical UI element in a
+trading journal
+• Accessible for everyone — design for beginners first; experienced traders will find depth naturally
+
+-- 2 of 33 --
+
+2. Design References & Inspiration
+2.1 Primary Reference Apps
+App / Source 	Reference URL / Location 	What to Study
+TraderSync (mobile) App Store / Google Play 	Calendar colour-coded cells, trade log list rows, metric
+summary cards, P&L report layout
+TradeZella 	tradezella.com 	Modern card-based dashboard, clean chart style, colour
+usage in metric cards
+Notion (app) 	notion.com / mobile app 	Background warmth, card border style, sidebar spacing,
+typography hierarchy, empty state illustration style
+Tradewire (Behance) behance.net/gallery/102904929 Full trading journal UI/UX case study and design system
+— review entire Behance project
+2.2 Dribbble Design References
+Search the following terms on dribbble.com and review the top shots for visual inspiration:
+• 'Trading journal app UI' — filter: mobile, past year
+• 'Finance dashboard mobile' — look for clean card layouts
+• 'Trading app dark mode' — reference for dark mode tokens
+• 'Calendar heatmap finance' — reference for the P&L calendar view
+• 'Bottom navigation bar flutter' — animated nav bar references
+• 'Trading App UI UX — TradeWize' by Dribbble user (Sep 2024) — clean fintech mobile design
+• 'Stock Trading App' by Ronas IT — financial card layout patterns
+2.3 Behance Case Studies
+• Tradewire — Trading Journal App (UX/UI, Design System) — full screen flow + design system
+reference
+• Search 'Fintech App Case Study' — review top 5 results for current 2024/25 patterns
+• 'UI/UX Case Study for a Fintech App (Union Bank)' by Mar Motas — interaction patterns
+
+-- 3 of 33 --
+
+2.4 Key UI Patterns to Reference
+Pattern 	Reference App 	Application in PipPal
+P&L Calendar
+Heatmap
+TraderSync, GitHub-style
+contribution graph
+Monthly calendar with green/red cell backgrounds showing
+daily P&L
+Metric Summary Cards TraderSync, Robinhood 	Win rate, total pips, RR ratio — top dashboard cards
+Bottom Sheet Entry
+Form
+Airbnb, Uber, Wealthsimple Slide-up modal for quick trade entry
+Equity Curve Line
+Chart
+Coinbase, TradeZella 	Progressive line drawing animation, fill below line
+Warm Card Surfaces Notion, Linear 	Cards with soft 1px border on warm background, no hard
+shadows
+Onboarding
+Walkthrough
+Duolingo, Revolut 	3-step swipeable feature intro with illustrations
+3. Colour System
+IMPORTANT All hex values below represent the design's Light Mode tokens. Section 10 maps these to their Dark
+Mode equivalents. Always design in Light Mode first, then specify the Dark Mode palette.
+3.1 Primary Brand Palette (Client-Selected)
+The following five colours were selected by the product owner and form the brand identity core:
+#2D2D2A 	Charcoal Black 	Primary text, app bars, dark UI
+elements
+Text Primary
+#4C4C47 	Warm Gray 	Secondary text, inactive states,
+meta information
+Text Secondary
+#848FA5 	Slate Blue-Gray 	Interactive elements, active nav,
+links, badges, muted headings
+Brand Accent / Interactive
+#C14953 	Crimson Red 	Loss indicator, brand highlight,
+primary CTA, alert states
+Loss / Brand Accent
+#E5DCC5 	Warm Cream 	Card surfaces, secondary
+backgrounds, tag backgrounds
+Surface Secondary
+
+-- 4 of 33 --
+
+3.2 Recommended Additions (Designer Proposed)
+These colours are proposed additions to complete the system. The designer is encouraged to validate and
+refine these tones:
+Swa
+tch
+Hex 	Name 	Usage 	Token Role
+#F5F1E8 	App Background
+(Off-White)
+Root background of all screens —
+lighter, warmer than cream
+Background Primary
+#FFFFFF 	Pure White 	Card surfaces, input field
+backgrounds, modal backgrounds
+Surface Primary
+#2A9D5C 	Profit Emerald 	Positive P&L, winning trade
+indicators, success states
+Profit / Success
+#D4854A 	Warm Amber 	Warning states, neutral alerts,
+pending tags
+Warning / Neutral Alert
+#E0D9C5 	Warm Border 	Card borders, dividers, separator
+lines in light mode
+Border / Divider
+3.3 Semantic Colour Tokens — Light Mode
+These are the named design tokens the developer will reference in Flutter code. The designer must use
+these roles consistently:
+Token Name 	Hex Value 	Usage Rule
+colorBackground 	#F5F1E8
+(Off-White)
+Root screen background — all scrollable areas
+colorSurface 	#FFFFFF (White) Cards, modals, bottom sheets, input fields
+colorSurface2 	#E5DCC5
+(Cream)
+Tag chips, secondary card areas, highlighted sections
+colorTextPrimary 	#2D2D2A
+(Charcoal)
+All primary body text, headings, metric figures
+colorTextSecondary 	#4C4C47 (Warm
+Gray)
+Subtitles, meta text, secondary labels, placeholders
+colorTextMuted 	#848FA5 (Slate) Timestamps, helper text, inactive icons, captions
+colorAccent 	#848FA5 (Slate) Active nav icons, links, focus rings, selected states
+colorBrandCrimson 	#C14953
+(Crimson)
+Loss values, primary CTA button, brand highlights, error
+
+-- 5 of 33 --
+
+Token Name 	Hex Value 	Usage Rule
+colorProfit 	#2A9D5C
+(Emerald)
+Profit values, winning trade tag, positive change arrows
+colorWarning 	#D4854A
+(Amber)
+Warning banners, neutral/pending tags, break-even labels
+colorBorder 	#E0D9C5 (Warm
+Border)
+All card borders and dividers in light mode
+colorNavBar 	#FFFFFF (White) Bottom nav bar background
+3.4 P&L Colour Usage Rules
+• Profit / Positive P&L — always use #2A9D5C (Emerald) for text, and a 10% opacity emerald tint
+for card backgrounds
+• Loss / Negative P&L — always use #C14953 (Crimson) for text, and a 10% opacity crimson tint
+for card backgrounds
+• Break-even (0.00) — use #D4854A (Amber) to distinguish from both states
+• User-customisable — the profit/loss colours are overridable from Settings. The token names stay
+the same; only the hex values change per user preference
+• Calendar cells — profit cells: emerald fill at 25% opacity with emerald text. Loss cells: crimson
+fill at 25% opacity with crimson text. No trades: cream (#E5DCC5)
+COLOUR PSYCHOLOGY NOTE The warm off-white (#F5F1E8) background was chosen deliberately over pure
+white. Research shows traders spend extended periods looking at screens; warm backgrounds reduce eye strain
+compared to stark white. Notion adopted this same approach for identical reasons.
+
+-- 6 of 33 --
+
+4. Typography System
+4.1 Font Family
+Role 	Font 	Why
+Primary UI Font 	Inter (Google Fonts) 	Clean, modern, high legibility across all sizes. Used by Notion,
+Linear, Vercel. Excellent digit rendering.
+Numeric / Data
+Display
+Inter (tabular-nums variant) Enable 'fontFeatures: [FontFeature.tabularFigures()]' in Flutter
+— ensures all digits occupy equal width, critical for aligned
+financial figures in tables and metrics
+Fallback (System) SF Pro (iOS) / Roboto
+(Android)
+Flutter renders system fonts as fallback. Design in Inter; the
+system fallback will mirror it closely.
+4.2 Type Scale
+Token 	Size (px) Weight 	Line Height 	Usage
+displayLarge 	32px 	Bold (700) 38px 	Hero numbers — total equity, key P&L figure
+on dashboard
+displayMedium 	26px 	SemiBold
+(600)
+32px 	Section hero metrics — win rate %, total pips
+headlineLarge 	22px 	SemiBold
+(600)
+28px 	Screen titles in AppBar
+headlineMedium 	20px 	SemiBold
+(600)
+26px 	Card section headers
+headlineSmall 	18px 	Medium
+(500)
+24px 	Sub-section labels, modal titles
+titleMedium 	16px 	Medium
+(500)
+22px 	Card titles, trade pair names, list item
+primaries
+bodyLarge 	15px 	Regular
+(400)
+22px 	Primary body text, form field values, notes
+bodyMedium 	14px 	Regular
+(400)
+20px 	Secondary body text, descriptions
+bodySmall 	13px 	Regular
+(400)
+18px 	Helper text, form labels, meta info
+labelLarge 	12px 	Medium
+(500)
+16px 	Tags, badges, chips, nav bar labels
+
+-- 7 of 33 --
+
+Token 	Size (px) Weight 	Line Height 	Usage
+labelSmall 	11px 	Regular
+(400)
+14px 	Timestamps, calendar day labels, footnotes
+4.3 Typography Rules
+• NEVER use bold below bodySmall (13px) — it becomes illegible on small mobile displays
+• All numeric financial values (P&L, pips, percentages, RR ratios) must use tabular figure rendering
+• Headings use Charcoal (#2D2D2A); secondary labels use Warm Gray (#4C4C47); meta text uses
+Slate (#848FA5)
+• Line heights must be set explicitly — never rely on defaults for financial data tables
+• Maximum line length in descriptive text: 60 characters (roughly 300px at 14px) — prevents
+overly long text lines
+• Number alignment in tables and metric rows: always right-align or centre-align; never left-align
+
+-- 8 of 33 --
+
+5. Spacing & Layout System
+5.1 Base Spacing Unit
+All spacing values are multiples of 4px. This ensures consistent rhythm across all screen sizes and aligns
+with Flutter's Material 3 spacing conventions.
+Token 	Value 	Usage
+spacing2 	2px 	Icon-to-text gap, micro adjustments
+spacing4 	4px (XS) 	Inline element spacing, tag internal padding
+spacing8 	8px (S) 	Component internal padding (dense), icon spacing
+spacing12 	12px (SM) List item internal spacing, tight card padding
+spacing16 	16px (M) 	Standard card padding, section body padding, form field height
+spacing20 	20px (ML) Button padding (vertical), modal padding top/bottom
+spacing24 	24px (L) 	Card padding (standard), section spacing, bottom sheet handle area
+spacing32 	32px (XL) Screen horizontal padding, header spacing
+spacing40 	40px (2XL) Section gap between major page blocks
+spacing48 	48px (3XL) Bottom nav bar clearance, hero section spacing
+spacing64 	64px (4XL) Top-of-screen hero area, large visual separators
+5.2 Screen Layout Rules
+• Horizontal screen padding: 16px (spacing16) on both sides — applies to all content areas
+• Safe area: Respect iOS safe areas (notch top, home indicator bottom). Bottom nav must sit above
+home indicator
+• Card border radius: 12px (cards), 8px (chips/tags), 16px (bottom sheet), 24px (modal dialogs)
+• Card border: 1px solid #E0D9C5 (Warm Border) — no drop shadows in light mode; shadow only
+in modals/bottom sheets
+• Card shadow (modals/bottom sheets only): 0px 4px 24px rgba(0,0,0,0.08) — very soft,
+warm-tinted
+• Minimum touch target size: 44×44pt (iOS HIG), 48×48dp (Material) — whichever is larger
+• Bottom navigation bar height: 56dp + safe area inset
+• Top app bar height: 56dp + safe area inset (status bar)
+
+-- 9 of 33 --
+
+5.3 Grid System
+• Dashboard uses a 2-column card grid for metric summary cards (each card = 50% width minus
+gap)
+• Card gutter: 12px between all cards in grid
+• Calendar uses a 7-column grid (days of week), equal column widths
+• Trade log uses a full-width single column with internal table structure
+
+-- 10 of 33 --
+
+6. Component Library Specifications
+The designer must produce all components below in a dedicated Components page in Figma. Each
+component must show: Default, Hover/Pressed, Focused, Disabled, and where applicable: Empty,
+Loading, and Error states.
+6.1 Buttons
+Component 	Style 	Usage 	Notes
+Primary Button 	Filled, Crimson bg
+(#C14953), white text, 12px
+radius, 48dp height,
+full-width or auto
+Main CTAs: 'Log Trade',
+'Save', 'Continue', 'Sign Up'
+Pressed: darken bg by 10%.
+Disabled: 40% opacity.
+Secondary Button 	Outlined, Crimson border,
+Crimson text, white bg,
+12px radius, 48dp height
+Secondary actions: 'Cancel',
+'Skip', 'Edit'
+Pressed: Crimson bg at 8%
+opacity.
+Ghost Button 	No border, no bg, Slate
+(#848FA5) text
+Tertiary: 'Forgot password',
+'Learn more', inline text
+actions
+Pressed: Slate bg at 8% opacity.
+Destructive Button Filled deep red (#9B2226),
+white text
+Delete trade, remove
+account — always in a
+confirmation dialog
+Must always be paired with a
+Cancel button.
+Icon Button 	40×40dp circle, Charcoal
+icon on transparent bg, with
+Cream (#E5DCC5) bg on
+hover/press
+Filter, edit, share, close
+actions
+Icon size: 20dp inside 40dp
+container.
+FAB (Add Trade) 	56×56dp or pill shape,
+Crimson bg, white + icon,
+floating above nav bar
+Central add-trade action —
+always visible
+Spring animation on tap.
+Shadow: 0px 4px 16px
+rgba(193,73,83,0.30).
+6.2 Input Fields
+Component 	Default State 	Focused State 	Notes
+Text Input 	White bg, 1px Warm
+Border, 12px radius, 48dp
+height, bodyMedium text,
+labelSmall floating label
+1.5px Slate (#848FA5)
+border, label rises and
+shrinks (animated float)
+Error state: Crimson border +
+error message below.
+Number Input 	Same as text + right-aligned
+value text, tabular font
+feature
+Same focus style + numeric
+keyboard trigger on mobile
+Always show 2 decimal places
+for prices; 1 for pips.
+
+-- 11 of 33 --
+
+Component 	Default State 	Focused State 	Notes
+Dropdown / Picker White bg, 1px border,
+chevron right icon,
+bodyMedium label
+Triggers bottom sheet picker
+overlay on tap
+Never use system default picker
+— custom bottom sheet.
+Date & Time Picker White bg, calendar icon on
+right, formatted date string
+Triggers calendar bottom
+sheet picker
+Show day, month, year + time
+(HH:MM) formatted for user's
+locale.
+Toggle / Switch 	iOS-style toggle: Warm
+Border track, white thumb
+when off
+Crimson track, white thumb
+when on
+Follow iOS HIG toggle styling.
+Textarea (Notes) 	White bg, 1px border, min
+100dp height, grows with
+content
+Slate border on focus 	Used for trade
+notes/commentary. Show
+character count.
+Search Bar 	Off-white bg, 12px radius,
+search icon left, clear icon
+right
+White bg, Slate border,
+keyboard opens
+immediately
+Used on Journal screen to search
+trades.
+6.3 Cards & Containers
+Component 	Description 	Dimensions 	States
+Metric Summary Card 	2-col grid card. Top: label (labelSmall,
+Slate), bottom: value (displayMedium,
+Charcoal), bottom-right: trend arrow +
+percent change
+~(screen/2 - 20dp) ×
+88dp
+Loading: Shimmer
+skeleton. Empty:
+dash placeholder.
+Trade List Card 	Full-width. Left: instrument pair + trade
+type tag. Centre: entry price → exit price.
+Right: P&L value (coloured) + pips. Bottom
+row: date, duration, RR ratio
+Full-width × 80dp Swipe-right: Edit.
+Swipe-left: Delete
+(destructive red).
+Calendar Day Cell 	Square cell in 7-col grid. Day number
+(labelSmall), P&L value (labelSmall,
+coloured). Background filled based on
+profit/loss
+Equal width × 52dp
+tall
+No trades: cream
+bg. Profit: emerald
+tint. Loss: crimson
+tint. Selected: Slate
+border ring.
+Section Header Card 	Full-width. Title left (headlineMedium),
+action right (labelLarge, Slate link)
+Full-width × 44dp Simple text row —
+no background or
+border.
+Chart Card 	Full-width card with title, subtitle (date
+range), and embedded chart. Padding inside
+card.
+Full-width × height
+depends on chart
+type
+Loading: skeleton
+placeholder
+rectangle. Empty:
+empty state
+illustration.
+
+-- 12 of 33 --
+
+Component 	Description 	Dimensions 	States
+Tag / Chip 	Small pill. 6px radius. Filled or outlined.
+Buy: Emerald bg tint. Sell: Crimson bg tint.
+Neutral: Cream
+Auto-width × 24dp Tappable chips
+allow filter
+selection — add
+checkmark icon
+when selected.
+6.4 Navigation Components
+• Bottom Navigation Bar: 4 tabs — Dashboard, Journal, Calendar, Analytics. Icons: outlined when
+inactive, filled when active. Active colour: Crimson (#C14953) icon + Crimson label. Inactive: Slate
+(#848FA5). White background. 1px top border in Warm Border.
+• Floating Action Button (FAB): Positioned above centre of bottom nav bar at the top edge. Crimson
+filled. Plus icon + 'Log Trade' label. Expands to mini bottom sheet on tap.
+• App Bar (Top): White background, Charcoal title (headlineLarge), back-arrow left (when
+applicable), profile avatar or settings icon right. No elevation — just bottom border (Warm Border).
+• Bottom Sheet Handle: Grey rounded pill 36×4dp centred at the top of all bottom sheets. 8dp
+margin above handle.
+6.5 Feedback & Status Components
+Component 	Appearance 	Usage
+Toast / Snackbar 	Full-width bottom-anchored bar, 12px radius,
+Charcoal bg, white text, optional action link in
+Crimson. 48dp height.
+Trade saved, sync complete, error
+notifications
+Dialog / Alert 	Centre modal on overlay. White bg, 16px radius,
+Charcoal title, bodyMedium message, 2 buttons
+(Cancel + Primary)
+Destructive confirmations, critical
+warnings
+Skeleton / Loading 	Animated shimmer effect (warm gray #D4CDB9
+on off-white). Replaces exact card shapes.
+All data cards while loading. Never show
+spinners alone.
+Empty State 	Illustration (custom, matches brand), 1-2 line
+message in bodyMedium (Warm Gray), optional
+CTA button below
+First time use, no trades logged, empty
+calendar
+Success State 	Full-screen checkmark animation (Lottie) +
+message. Emerald colour. Auto-dismisses after
+1.5s
+After trade saved, after sign-up
+completed
+Error Banner 	Full-width inline red banner below input,
+labelSmall Crimson text + warning icon left
+Form validation errors, API errors
+
+-- 13 of 33 --
+
+7. Navigation Structure
+7.1 App Navigation Map
+Level 	Screen 	Access Method 	Back Behaviour
+Root (L0) 	Splash Screen 	App launch only — auto-advances
+after 2.5s
+N/A
+Auth (L0) 	Welcome / Sign In / Sign Up /
+Profile Setup
+First-time users only (skipped if
+logged in)
+Back allowed between
+auth screens; not to
+Splash
+Nav Tab 1 Dashboard 	Bottom nav tab 1 (Home icon) 	Tab switch resets scroll
+position
+Nav Tab 2 Journal / Trade Log 	Bottom nav tab 2 (List icon) 	Tab switch preserves last
+scroll
+Nav Tab 3 Calendar 	Bottom nav tab 3 (Calendar icon) 	Tab switch preserves
+month selection
+Nav Tab 4 Analytics / Stats 	Bottom nav tab 4 (Chart icon) 	Tab switch preserves
+filter state
+Modal (L1) Log Trade Bottom Sheet 	FAB button (+ icon floating above
+nav)
+Swipe down or Cancel
+button closes it
+Push (L1) 	Trade Detail Screen 	Tap any trade in Journal or Calendar 	Back button or
+swipe-right to go back
+Push (L1) 	Settings Screen 	Tap gear icon in app bar (Dashboard) Back arrow to Dashboard
+Push (L2) 	Settings sub-screens (Display,
+Notifications, Account)
+Tap setting row 	Back arrow to Settings
+main
+Push (L1) 	Profile Screen 	Tap avatar in Dashboard app bar 	Back arrow to Dashboard
+7.2 Bottom Navigation Bar Design
+• 4 tabs only: Dashboard, Journal, Calendar, Analytics
+• Icons: use Lucide icons or custom line icons (2px stroke weight). Active state: filled variant of
+same icon
+• Labels: always visible (not icon-only). labelSmall (11px) below each icon
+• Active indicator: Crimson icon + Crimson label + optional small dot or pill indicator above active
+icon
+• Tab switch animation: Material 3 Fade-Through (cross-fade, not slide). Duration: 200ms
+• Haptic feedback: Light haptic on each tab tap (iOS: UIImpactFeedbackGenerator.light)
+
+-- 14 of 33 --
+
+
+
+-- 15 of 33 --
+
+8. Screen-by-Screen Design Specifications
+DESIGNER NOTE For each screen below: design at 390×844pt (iPhone 14 base size). Also produce 375×667pt
+(iPhone SE) and 428×926pt (iPhone 14 Pro Max) as stretch variants. Flutter will adapt intermediate sizes automatically.
+Screen 1 — Splash Screen
+Property 	Specification
+Purpose 	Brand intro on app cold launch. Creates first impressions. Auto-advances after animation.
+Background 	#F5F1E8 (Off-White) — full screen, no status bar content
+Content — Centre 	PipPal logo/icon centred vertically and horizontally. The candlestick character hugging a
+notebook (final logo asset from brand process).
+Content — Below Logo 'PipPal' wordmark in displayLarge (32px, Bold, Charcoal). Tagline below: 'Your Trading,
+Journalled.' in bodyMedium (14px, Italic, Warm Gray).
+Content — Bottom 	Subtle 'Powered by PipPal' or version number in labelSmall (Slate). Bottom-safe-area
+position.
+Animation Sequence 	1) App launches — background fades in from white over 300ms. 2) Logo icon pops in
+with spring animation (scale 0 → 1.05 → 1.0, duration 500ms). 3) Wordmark fades up
+from 0→1 opacity, 200ms delay, 300ms duration. 4) After 1800ms total: fade-out entire
+screen → transition to Welcome or Dashboard.
+States 	Single state only. No user interaction.
+Flutter Notes 	Show status bar with light content (white icons). Use
+AnnotatedRegion<SystemUiOverlayStyle>.
+Screen 2 — Welcome Screen
+Property 	Specification
+Purpose 	Entry point for unauthenticated users. Sets the tone. Drives sign-up or sign-in.
+Background 	#F5F1E8 (Off-White)
+Top Section (40% screen) Large illustration or stylised visual — candlestick character with a journal, showing
+excitement/confidence. Warm tones matching palette. Not a photo — custom illustration or
+vector graphic.
+Hero Text 	headlineLarge (22px, SemiBold): 'Journal every trade. Trade every insight.' — centred.
+Below: bodyMedium (14px, Warm Gray): 'PipPal helps Forex traders track performance
+and improve decisions, one trade at a time.'
+
+-- 16 of 33 --
+
+Property 	Specification
+CTA Buttons 	Primary: 'Create free account' (Crimson, full-width). Secondary: 'Sign in' (outlined
+Crimson, full-width, 12px below Primary). Both 48dp height. 24px horizontal margin.
+Bottom Trust Line 	labelSmall (Slate): 'No broker connection required. 100% manual journalling.' Centred.
+Positioned above system home indicator.
+States 	Single state. No loading. Buttons disabled until tap action.
+Screen 3 — Sign Up Screen
+Property 	Specification
+Purpose 	New user account creation. Minimal friction — 3 fields maximum.
+Layout 	Scrollable screen. Top: PipPal wordmark (small, top-left). Back arrow top-left to return to
+Welcome.
+Screen Title 	headlineLarge: 'Create your account'. Subtitle bodyMedium (Warm Gray): 'Start
+journalling in seconds.'
+Form Fields 	1) Full Name — Text Input. 2) Email Address — Email Input (email keyboard). 3)
+Password — Text Input with show/hide toggle eye icon right. All 48dp height. 16px gap
+between fields.
+Password Strength 	Below password field: 4-dot strength indicator (grey → red → amber → green). Updates
+live as user types. labelSmall feedback text.
+CTA 	Primary 'Create Account' button — full width, 48dp, Crimson. Disabled until all fields
+valid.
+Legal 	labelSmall (Slate) below button: 'By signing up, you agree to our Terms of Service and
+Privacy Policy.' Terms and Privacy as Slate underline links.
+Sign In Link 	Bottom: bodySmall 'Already have an account? Sign in' — 'Sign in' in Crimson bold.
+States 	Default, Active (typing), Loading (submitting — button shows spinner), Success
+(navigates to Onboarding), Error (inline field errors in Crimson)
+
+-- 17 of 33 --
+
+Screen 4 — Sign In Screen
+Property 	Specification
+Layout 	Mirror Sign Up layout. Two fields: Email + Password. Show/hide toggle on password.
+Screen Title 	headlineLarge: 'Welcome back'. Subtitle: 'Sign in to continue journalling.'
+Forgot Password 	Ghost button link below password field, right-aligned. 'Forgot password?' in Slate.
+CTA 	Primary 'Sign In' — full width, 48dp, Crimson. Loading state on submit.
+Sign Up Link 	Bottom: 'New to PipPal? Create account' — 'Create account' in Crimson bold.
+Error State 	Wrong credentials: red banner below CTA button: 'Incorrect email or password. Try again.'
+— do NOT highlight specific fields to avoid revealing which is wrong.
+Screen 5 — Onboarding Walkthrough (3 Slides)
+Property 	Specification
+Purpose 	Shown once after sign-up. Introduces 3 core features. Swipeable. Skippable.
+Layout 	Full screen. Illustration top 50%. Text bottom 50%. Page indicator dots below illustration.
+Skip link top-right (Ghost button, Slate).
+Slide 1 — Log Trades 	Illustration: simple trade entry form animation. Title: 'Log every trade in seconds'
+(headlineLarge). Body: 'Quickly record entry, exit, lot size, instrument, and your notes —
+all in one tap.' (bodyMedium, Warm Gray)
+Slide 2 — See Your
+Calendar
+Illustration: colourful calendar with green/red cells. Title: 'See your performance at a
+glance'. Body: 'Your P&L calendar shows winning and losing days with a visual colour
+map.'
+Slide 3 — Track &
+Improve
+Illustration: equity curve rising. Title: 'Understand your edge'. Body: 'Dashboard metrics
+show win rate, risk-reward ratio, and trade frequency to help you trade smarter.'
+Navigation 	Swipe left/right to advance slides. Page indicator dots below illustration (3 dots). Dot:
+inactive=Warm Border; active=Crimson.
+CTA 	Last slide: 'Get started' Primary button (Crimson, full-width). First two slides: 'Next'
+Primary. 'Skip' Ghost button throughout (top-right).
+Animation 	Slides transition with a horizontal spring slide. Each illustration has a subtle entrance
+animation (scale-in from 0.95→1.0 as slide enters).
+
+-- 18 of 33 --
+
+Screen 6 — Profile Setup Screen
+Property 	Specification
+Purpose 	Shown once after onboarding walkthrough. Personalises the experience. Optional but
+encouraged.
+Screen Title 	headlineLarge: 'Set up your profile'. Subtitle: 'We will personalise your experience.'
+Fields 	1) Trading Name / Display Name (pre-filled with sign-up name, editable). 2) Preferred
+Currency — Dropdown (USD, EUR, GBP, JPY, etc., set to USD by default). 3) Time Zone
+— Dropdown (auto-detected from device, editable). 4) Account Type — Segmented
+control: Demo / Real. 5) Trading Style — Optional multi-select chips: Scalping, Day
+Trading, Swing Trading, Position Trading.
+Avatar 	At top: circular avatar placeholder (64×64dp). User can tap to upload from gallery or
+camera. Show initials fallback if no image.
+CTA 	Primary 'Save & Start Journalling' — full width, Crimson. Below: Ghost 'Skip for now'
+link.
+Transition 	After saving: Navigate to Dashboard with a slide-from-right transition. First time on
+Dashboard: show a brief 'Welcome, [Name]!' toast notification.
+
+-- 19 of 33 --
+
+Screen 7 — Dashboard (Home Tab)
+Property 	Specification
+Purpose 	Primary screen. Shows performance summary, recent activity, and quick-access to core
+features.
+App Bar 	White bg. Left: 'PipPal' wordmark (titleMedium, Charcoal). Right: profile avatar (40×40dp
+circle) — tappable → Profile Screen. Below app bar: date range filter chip row.
+Date Range Filter 	Horizontal scrollable chip row: 'Today' | 'This Week' | 'This Month' | 'All Time' | 'Custom'.
+Active chip: Crimson bg tint with Crimson text. Inactive: Cream bg. All 32dp height, 8px
+radius, 12px horizontal padding.
+Equity Curve Chart Card Full-width card. Title: 'Equity Curve' (headlineSmall). Subtitle: current period label. Chart:
+smooth line chart with area fill below (emerald fill when positive, crimson fill when
+negative). X-axis: dates. Y-axis: account balance or cumulative pips. Chart height: 160dp.
+Interaction: tap+drag shows cross-hair with value tooltip.
+Metric Cards Grid (2-col) Four metric cards in a 2×2 grid (with 12px gutters). Each card: background White, 12px
+radius, Warm Border 1px. Label top (labelSmall, Slate). Value centre (displayMedium,
+Charcoal). Trend row bottom: small arrow icon + % change since last period (emerald=up,
+crimson=down). Cards: Total Pips | Win Rate (%) | Avg RR Ratio | Total Trades
+Recent Trades Section 	Section header: 'Recent Trades' left + 'See all' link right (Slate, labelLarge). Below: 3–5
+most recent Trade List Cards. Empty state: illustration + 'No trades yet. Log your first
+trade!' + 'Log Trade' Primary button.
+FAB 	Crimson, 56×56dp, + icon. Fixed position: 16dp from right edge, 16dp above bottom nav
+bar top. Spring animation: taps expand to show 'Log Trade' label pill. Tapping navigates to
+Log Trade Bottom Sheet.
+Scroll Behaviour 	App bar stays fixed. FAB stays fixed. Entire content area below app bar is scrollable. FAB
+disappears with a fade when user scrolls down (to reduce obstruction), reappears on scroll
+up.
+Loading State 	All cards show shimmer skeleton placeholders. Stagger: equity chart skeleton first (200ms
+delay), then metric cards (50ms stagger each), then trade list skeletons.
+Empty State (No Trades
+Ever)
+Replace equity chart and metric cards with large empty state illustration. CTA: 'Log your
+first trade' Primary button centred.
+Screen 8 — Log Trade Bottom Sheet (Step 1 of 2)
+Property 	Specification
+Trigger 	FAB on Dashboard, or '+' action from Journal screen. Slides up as bottom sheet.
+Sheet Height 	Expands to 85% of screen height. Remaining 15% shows dimmed overlay of screen behind
+(tap overlay to dismiss).
+
+-- 20 of 33 --
+
+Property 	Specification
+Handle 	36×4dp grey pill at very top, centred, 8dp margin below. Swipe down on handle or overlay
+tap dismisses with spring animation.
+Step Indicator 	2-step indicator: Step 1 of 2 shown as small pill '1 / 2' at top-right, or progress dots. Step
+label: 'Trade Details'.
+Sheet Title 	headlineSmall: 'Log a Trade'. Subtitle: bodySmall (Slate) 'Step 1: Trade details'.
+Fields — Step 1 	1) Instrument / Pair — Text input with autocomplete (EUR/USD, GBP/USD, XAU/USD
+etc.). 2) Trade Type — Segmented control: BUY / SELL (BUY = Emerald active, SELL =
+Crimson active). 3) Entry Price — Number input. 4) Exit Price — Number input. 5) Lot
+Size — Number input. 6) Open Date & Time — Date-time picker. 7) Close Date & Time
+— Date-time picker.
+Auto-Calculations (Live) Below the price fields: show auto-calculated P&L in pips and currency (coloured), and RR
+ratio if SL/TP added. Update live as user types. Small info row with icons: e.g., '📈 +48
+pips | $96.00 | RR 1:2'
+CTA 	Full-width Primary: 'Next: Add notes & tags →' (Crimson). Disabled until required fields
+are filled. Keyboard avoidance: sheet scrolls/adjusts so active input is always visible above
+keyboard.
+Screen 8B — Log Trade Bottom Sheet (Step 2 of 2)
+Property 	Specification
+Same sheet, slides content
+horizontally to reveal
+Step 2 (or transitions
+in-place).
+Step Header 	headlineSmall: 'Log a Trade'. Subtitle: bodySmall 'Step 2: Notes & details'.
+Fields — Step 2 	1) Notes / Commentary — Textarea (min 80dp, grows). Placeholder: 'What happened?
+Why did you take this trade?' 2) Emotional State — Optional emoji picker row: 😊
+Confident | 😐 Neutral | 😰 Anxious | 😤 Frustrated | 🎯 Focused (tap to select, single
+choice). 3) Trade Setup Tag — Optional chip multi-select (user-defined tags appear here;
+pre-loaded with: Trend Following, Breakout, Reversal, News, Scalp). 4) Screenshot /
+Photo — Optional. Tap 'Add screenshot' to open camera/gallery. Shows small thumbnail if
+added.
+Back / CTA 	'← Back' Ghost link left. 'Save Trade' Primary button right (or full-width). On Save: sheet
+animates downward, Success state (green checkmark toast), trade appears in Journal.
+Dismiss Confirmation 	If user swipes down mid-entry (fields have values): show small confirmation dialog:
+'Discard this trade?' with 'Discard' (destructive) and 'Keep editing' options.
+
+-- 21 of 33 --
+
+Screen 9 — Trade Detail Screen
+Property 	Specification
+Access 	Tap any trade card in Journal or Calendar day. Pushes as new screen (slides from right).
+App Bar 	Back arrow left. Title: instrument pair (e.g., 'EUR/USD') in headlineLarge. Right: Edit icon
+(pencil) + More (ellipsis) dropdown with options: Edit, Share, Delete.
+Hero P&L Block 	Large centred block at top (below app bar). P&L in displayLarge (emerald if profit,
+crimson if loss). Below: pips value in headlineMedium. Below: trade type chip
+(BUY/SELL) + date range label. Off-white or cream background for this hero section
+(16dp padding).
+Details Table 	Full-width card. Two-column key-value rows: Entry Price | Exit Price | Lot Size | Duration
+| Open Time | Close Time | RR Ratio | Commission (if added). Warm Border dividers
+between rows.
+Notes Section 	Card: 'Trade Notes'. bodyMedium Charcoal text, or italic Slate placeholder 'No notes
+added'. Edit icon in card header to add/edit inline.
+Emotional State 	Card: shows selected emoji + label text. If none: 'No emotion logged'.
+Tags Section 	Row of tag chips below. If none: 'No setup tags'. 'Add tags' ghost link.
+Screenshot 	If attached: full-width card with image thumbnail (tappable → full screen viewer). If none:
+dashed border box with 'Add screenshot' upload prompt.
+Edit Mode 	Tap Edit in app bar: all fields in card become editable in-place. 'Save changes' button
+appears at bottom (above safe area). 'Cancel' ghost link in app bar left replaces back arrow.
+Screen 10 — Journal / Trade Log Screen
+Property 	Specification
+Purpose 	Chronological list of all logged trades. Searchable, filterable, sortable.
+App Bar 	Title: 'Journal' (headlineLarge). Right: Filter icon (funnel icon, toggles filter panel). Search
+icon opens search bar inline below app bar.
+Search Bar 	Slides down below app bar when search icon tapped. White bg, Slate placeholder 'Search
+instrument, notes…', clear button right. Searches instrument name and notes in real time.
+Filter Panel 	Horizontal chip row (scrollable). Chips: All | BUY | SELL | Profit | Loss | This Week | This
+Month | [each custom tag]. Chips follow same active/inactive style as Dashboard date
+range chips.
+Sort Options 	Small 'Sort: Newest' row below filter chips. Tap to show sort dropdown: Newest First |
+Oldest First | Highest P&L | Lowest P&L | Best RR.
+
+-- 22 of 33 --
+
+Property 	Specification
+Trade List 	Full-width scrollable list. Each item: Trade List Card (spec in Section 6.3). 8px gap
+between cards. Section headers by date (labelSmall, Slate): 'Today', 'Yesterday', 'July 14,
+2026', etc.
+Swipe Actions 	Swipe left on a card: shows red 'Delete' action. Swipe right: shows 'Edit' action (Slate). Tap
+action area to confirm.
+Summary Bar 	Sticky bar at top (below filter): shows period summary. 'Showing 42 trades | Net:
++$1,240.50 (+186 pips)'. Updates with active filters.
+Empty State 	Large illustration + 'No trades match your filters.' + 'Clear filters' Ghost link. First-time
+empty: different message: 'Ready to log your first trade?' + Primary CTA.
+Screen 11 — Calendar View Screen
+Property 	Specification
+Purpose 	Monthly P&L visualisation. Each day shows colour-coded performance. Tap a day to see
+that day's trades.
+App Bar 	Title: 'Calendar' (headlineLarge). Month navigation: left/right arrow chevrons flank the
+month+year label (headlineMedium). No other app bar items.
+Month Summary Row 	Below app bar, above calendar: 3 micro-metrics. Left: 'Trading Days: 14'. Centre: 'Win
+Days: 10 (71%)'. Right: 'Best Day: +$430'. labelSmall labels, bodySmall values. Warm
+Border dividers between.
+Day of Week Headers 	Mon–Sun row (or Sun–Sat for users in US locale). labelSmall, Slate, centred in each
+column.
+Calendar Grid 	7-col grid of day cells. Each cell: 52dp tall. Day number top-left (labelSmall, Charcoal).
+P&L value bottom-right or centred (labelSmall, coloured). Cell backgrounds: no
+trades=Cream; profit=emerald at 20% opacity; loss=crimson at 20% opacity. Today: Slate
+ring border 1.5px. Selected day: deeper border + subtle shadow.
+Month Navigation 	Swipe left/right on calendar grid to advance/retreat months. Month header updates. Smooth
+slide animation.
+Day Detail Drawer 	Tap a day cell: a mini bottom sheet slides up (40% screen height) showing: date header,
+total P&L for day, number of trades, list of trade cards for that day (truncated). 'See all [N]
+trades' link at bottom opens Journal screen filtered to that date.
+Days with No Trades 	Cream background, day number only. Future days: slightly greyed out, no tap interaction.
+Colour Legend 	Below calendar: small legend row: Emerald swatch = 'Profit day', Crimson swatch = 'Loss
+day', Cream swatch = 'No trades'. labelSmall text.
+
+-- 23 of 33 --
+
+Screen 12 — Analytics / Stats Screen
+Property 	Specification
+Purpose 	In-depth performance analysis. Charts and stats that tell a trader how they are performing.
+App Bar 	Title: 'Analytics' (headlineLarge). Right: date range filter icon (calendar icon) — opens
+period picker bottom sheet.
+Period Filter 	Bottom sheet picker: This Week / This Month / Last Month / Last 3 Months / This Year /
+Custom range. Shows selected period as subtitle below screen title.
+Section 1 — Performance
+Overview
+Horizontal scrollable row of metric cards (show 2 at a time): Win Rate % | Profit Factor |
+Avg Win | Avg Loss | Avg RR Ratio | Total Trades | Total Volume (lots) | Best Trade |
+Worst Trade. Each card: White bg, Warm Border, 12px radius, 100dp wide × 90dp tall.
+Section 2 — Equity
+Curve
+Large full-width chart card. 200dp chart height. Toggles between 'Balance' and
+'Cumulative Pips' via segmented control above chart. Cross-hair on drag.
+Section 3 — Win/Loss
+Donut Chart
+Two side-by-side cards (or single wide card). Left: Donut chart — Win % vs Loss % in
+emerald/crimson. Right: Bar chart — trade count by day of week (Mon–Fri).
+Section 4 — Trade
+Frequency
+Full-width card. Mini calendar heatmap (github-style): 12 weeks visible, each day square =
+trade count intensity. Darker = more trades. Shows trading consistency.
+Section 5 — P&L by
+Session
+Horizontal bar chart: London | New York | Tokyo | Sydney session P&L. Bars: emerald for
+positive, crimson for negative.
+Loading 	All chart cards show skeleton shimmer in matching card shapes. Stagger with 100ms
+delays.
+Empty State 	Full page: illustration + 'Not enough data yet. Log at least 5 trades to see analytics.' with
+trade count progress (e.g., '2 / 5 trades logged').
+
+-- 24 of 33 --
+
+Screen 13 — Profile Screen
+Property 	Specification
+Access 	Tap avatar in Dashboard app bar → pushes profile screen (slides from right).
+App Bar 	Back arrow. Title: 'Profile'.
+Top Card 	White card. Centre: avatar (80×80dp circle, photo or initials). Below: display name
+(headlineMedium). Below: email (bodySmall, Slate). Edit icon top-right of card for profile
+photo/name change.
+Stats Strip 	3-column strip below top card: Total Trades | Days Active | Win Rate. These pull from
+all-time data. Each column: labelSmall label below, headlineSmall value above.
+Account Info Card 	White card with rows: Account Type (Demo / Real tag chip), Timezone, Preferred
+Currency. Each row: icon left, label centre, value right. Tappable rows open inline edit or
+navigate to Settings.
+Quick Links 	Card with rows: 'Settings →' | 'Change Password →' | 'Export Data →'. Each row: icon left,
+label, chevron right.
+Sign Out 	Crimson ghost text button at bottom: 'Sign out'. Tap → confirmation dialog: 'Sign out of
+PipPal?' with Sign Out (destructive) and Cancel.
+Screen 14 — Settings Screen (Main)
+Property 	Specification
+Access 	From Profile screen 'Settings →' row, or gear icon in Dashboard app bar.
+App Bar 	Back arrow. Title: 'Settings'.
+Layout 	Grouped list sections (iOS-style: white cards with section label above in Slate, labelSmall,
+uppercase). Each row: icon (24dp) left, label (titleMedium) centre, value or chevron right.
+Section: Appearance 	Row 1: 'App Theme' → shows 'Light / Dark / System' with current value right. Taps to
+sub-screen. Row 2: 'Profit Colour' → shows colour swatch right. Taps to colour picker.
+Row 3: 'Loss Colour' → same. Row 4: 'Accent Colour' — future feature, greyed out (label
++ 'Coming soon' badge right).
+Section: Account 	Row: 'Account Type' — toggles Demo / Real. Row: 'Default Currency' → value + chevron.
+Row: 'Time Zone' → value + chevron.
+Section: Data 	Row: 'Export Trades (CSV)' → tap to trigger download. Row: 'Cloud Backup' — future,
+greyed + 'Coming soon'. Row: 'Import Trades' — future.
+Section: Notifications 	Row: 'Daily Reminder' → toggle switch. Row: 'Reminder Time' → time picker (only
+active if toggle on). Row: 'Weekly Performance Summary' → toggle.
+
+-- 25 of 33 --
+
+Property 	Specification
+Section: Support 	Row: 'About PipPal' (version number right). Row: 'Privacy Policy' → opens in-app
+browser. Row: 'Terms of Service'. Row: 'Rate PipPal' → opens App Store.
+Screen 15 — App Theme / Display Settings Sub-Screen
+Property 	Specification
+Access 	Settings → Appearance → 'App Theme' row.
+Theme Selector 	3 large option cards in a vertical stack. Each: icon left (sun / moon / phone screen), label
+centre, radio button right. Options: 'Light' | 'Dark' | 'System (follows device)'. Selected
+card: Crimson left border strip + Crimson radio fill.
+Colour Customisation 	Below theme selector: Section 'P&L Colours'. Two rows: Profit Colour (swatch + label +
+'Change' Ghost link) | Loss Colour (same). Tapping 'Change' opens a colour picker bottom
+sheet with a predefined palette of 8 options (no custom hex — keep it simple). Defaults:
+Emerald and Crimson.
+Preview 	At bottom of screen: a live preview mini card showing a sample trade with selected
+profit/loss colours applied. Updates in real time as user picks colours.
+Save 	Changes apply immediately (live preview). 'Reset to defaults' Ghost link at bottom.
+
+-- 26 of 33 --
+
+9. Animations & Transitions
+DESIGN NOTE All animations should feel premium but never distracting. The baseline rule: if an animation takes
+user attention away from data, it is too much. Use animation to guide focus, confirm actions, and reward completion —
+not to show off.
+9.1 Global Transition Timing
+Animation Type 	Duration 	Easing Curve 	Usage
+Screen push (right to
+left)
+300ms 	easeInOutCubic 	Navigating to sub-screens (Trade Detail, Settings)
+Screen pop (left to
+right)
+280ms 	easeInOutCubic 	Back navigation
+Bottom nav tab switch 200ms 	fadeThrough (Material
+3)
+Switching between Dashboard, Journal, Calendar,
+Analytics tabs
+Bottom sheet slide up 380ms 	spring (mass: 0.8,
+stiffness: 300)
+Log Trade sheet, day detail sheet, picker sheets
+Bottom sheet dismiss 280ms 	easeInCubic 	Swipe down or Cancel on bottom sheets
+Fade transitions
+(toasts, overlays)
+200ms in /
+150ms out
+easeOut 	Toast notifications, overlay dimmer
+Micro-interactions
+(button press)
+80ms scale
+to 0.97×
+easeOut 	All tappable elements
+9.2 Screen-Specific Animations
+• SPLASH SCREEN: Logo spring pop-in (0→1.05→1.0 scale, 500ms). Wordmark fade-up
+(300ms, 200ms delay). Full screen fade to off-white before navigating.
+• DASHBOARD — Equity Curve Chart: On first load, the line draws progressively from left
+to right (1200ms, easeOut). The fill area below the line fades in simultaneously.
+• DASHBOARD — Metric Cards: Numbers count up from zero on first load. Stagger: each
+card enters 80ms after the previous. Use a number-count animation (interpolated from 0 to
+final value, 800ms).
+• DASHBOARD — FAB: On scroll down: FAB scales to 0 with 200ms fade. On scroll up: FAB
+scales back to 1 with spring. On tap: brief scale to 1.15× then spring to 1.0 before sheet opens.
+• LOG TRADE — Save Success: Sheet slides down. Simultaneously: a Lottie checkmark
+animation appears in the centre of screen (emerald checkmark, 0.8s). Trade card materialises at
+top of Journal list with a fade+slide-in.
+• CALENDAR — Month Transition: Swipe left/right: current month slides out, new month
+slides in (300ms, spring). Day cells fade in with a 20ms stagger from top-left to bottom-right on
+month change.
+
+-- 27 of 33 --
+
+• ANALYTICS — Charts: All charts animate on first render. Donut chart: fills from 12
+o'clock position clockwise (1000ms). Bar charts: bars grow from baseline up (800ms, staggered).
+Equity curve: same draw-in as Dashboard version.
+• ONBOARDING SLIDES: Horizontal spring slide between slides. Each illustration has an
+entrance scale (0.92→1.0, 300ms) as its slide comes into view.
+9.3 Haptic Feedback Map
+Interaction 	Haptic Type 	Notes
+Bottom nav tab tap 	Light impact 	Every tab switch
+Trade saved successfully 	Success notification haptic Paired with Lottie checkmark animation
+Trade deleted 	Heavy impact 	Destructive action confirmation
+Swipe to reveal actions on trade
+card
+Light selection haptic 	As the action buttons reveal
+Error / form validation fail 	Error notification haptic 	Paired with field red border animation
+Calendar month swipe 	Light impact 	On month change complete
+Toggle switch flip 	Light selection haptic 	Every toggle change in Settings
+
+-- 28 of 33 --
+
+10. Dark Mode Specifications
+Dark mode is designed as a secondary mode (light mode is primary). All screens must be designed in light
+mode first; dark mode maps are provided below. The designer should produce a Dark Mode variant for
+the core screens: Dashboard, Journal, Calendar, Analytics, and Trade Detail.
+10.1 Dark Mode Colour Token Mapping
+Token Name 	Light Mode Hex Dark Mode Hex Rationale
+colorBackground 	#F5F1E8 	#1E1E1B 	Deep warm charcoal — not pure black
+(harsh)
+colorSurface 	#FFFFFF 	#2D2D2A 	Card surface: user's Charcoal colour
+colorSurface2 	#E5DCC5 	#3A3A36 	Secondary surface: slightly lighter than
+card
+colorTextPrimary 	#2D2D2A 	#E5DCC5 	Inverts: cream text on dark bg
+colorTextSecondary 	#4C4C47 	#B5AE99 	Warm mid-grey text for secondary info
+colorTextMuted 	#848FA5 	#6B7A96 	Slightly desaturated Slate for muted text
+colorAccent 	#848FA5 	#A0ADBE 	Lighter Slate for better contrast on dark bg
+colorBrandCrimson 	#C14953 	#E5717A 	Lightened slightly for dark bg contrast
+colorProfit 	#2A9D5C 	#4DBF7F 	Lightened emerald for dark bg readability
+colorWarning 	#D4854A 	#E8A06B 	Lightened amber
+colorBorder 	#E0D9C5 	#3D3D39 	Dark warm border — subtle, not harsh
+colorNavBar 	#FFFFFF 	#252522 	Bottom nav slightly darker than bg
+10.2 Dark Mode Design Rules
+• NO pure black (#000000) backgrounds — use #1E1E1B (Deep Warm Charcoal) as the darkest
+background
+• Card elevation in dark mode: use BORDERS not shadows (shadows are invisible on dark bg).
+Card border: 1px solid #3D3D39
+• Image and chart contrast: ensure all chart elements have sufficient contrast against dark surfaces
+(minimum 4.5:1 for text)
+• Calendar cells in dark mode: profit cells use emerald at 25% opacity on dark surface; loss cells use
+crimson at 25% opacity. The number text uses the lighter versions of emerald/crimson
+• Status bar: in dark mode, use light content (white icons) on dark background
+
+-- 29 of 33 --
+
+• The off-white background (#F5F1E8) is the 'warm' design signature — preserve this warmth in
+dark mode by using #1E1E1B rather than cold dark grays
+
+-- 30 of 33 --
+
+11. Accessibility Guidelines
+11.1 Contrast Requirements
+Text Pair 	Light Mode Ratio 	Dark Mode Ratio 	WCAG Standard
+Charcoal (#2D2D2A) on Off-White
+(#F5F1E8)
+12.3:1 	N/A (dark mode
+inverted)
+AA Pass (4.5:1 required)
+Cream text (#E5DCC5) on Charcoal
+(#1E1E1B) — dark mode
+N/A 	9.8:1 	AA Pass
+Crimson (#C14953) on White —
+buttons
+4.8:1 	N/A 	AA Pass (minimum)
+Slate (#848FA5) on Off-White —
+muted text
+3.9:1 	N/A 	FAILS AA for small text —
+use for labels only, not
+primary text
+Emerald (#2A9D5C) on White —
+profit text
+4.5:1 	N/A 	AA Pass (exact minimum)
+WARNING Slate (#848FA5) does not meet WCAG AA for body text on light backgrounds. Use only for labelSmall,
+captions, and helper text — never for primary body copy or critical data labels.
+11.2 Touch Target Sizes
+• Minimum tap target: 44×44pt on iOS, 48×48dp on Android. Design at 48dp to satisfy both
+• The bottom nav bar icons must have 48dp tap areas even if the visual icon is smaller
+• Trade list card swipe targets: the delete/edit reveal areas must be minimum 60dp wide
+• Calendar day cells are 52dp tall — acceptable minimum (the entire cell is tappable, making the
+effective target per cell = full cell area)
+11.3 Semantic & Screen Reader Rules
+• All icons used without a visible label must have a semantic accessibility label (e.g., filter icon →
+'Filter trades')
+• P&L values must have full context in their accessibility label: not just '+$48.00' but 'Profit: 48
+dollars. EUR/USD trade, July 14'
+• All interactive elements must have clear focus indicators (Slate ring, 2px, 2px offset)
+• Do not rely solely on colour to convey information — always pair colour with an icon or text label
+(e.g., profit arrow up icon + emerald colour, not emerald alone)
+• Form error messages must be announced by screen readers immediately on validation (not just
+shown visually)
+
+-- 31 of 33 --
+
+11.4 Text Sizing
+• The app must support iOS Dynamic Type and Android font scaling. Design at default scale; test at
+large (1.3×) and extra-large (1.5×) to ensure layouts do not break
+• Never truncate primary financial data values — always allow wrapping or horizontal scroll in
+extreme type sizes
+
+-- 32 of 33 --
+
+12. Designer Deliverables Checklist
+The following must be delivered by the designer in Figma (or equivalent tool) with exported assets as
+specified:
+12.1 Design System File
+• Colour styles: all tokens from Section 3.3 as named Figma colour styles
+• Text styles: all type scale levels from Section 4.2 as named Figma text styles
+• Spacing tokens: named frame/auto-layout spacing values from Section 5.1
+• All components from Section 6 in a dedicated Components page — with all states
+• Dark mode: duplicate colour styles with /Dark suffix for each token
+12.2 Screen Designs
+• All 15 screens defined in Section 8, plus: Forgot Password, Empty States (per screen),
+Loading/Skeleton State variants
+• Each screen at 390×844pt (iPhone 14 base). Additional artboards at 375×667pt and 428×926pt
+• Both Light Mode and Dark Mode variants for: Dashboard, Journal, Calendar, Analytics, Trade
+Detail
+• Interactive prototype connections for primary user flows: Onboarding → Dashboard → Log Trade
+→ Trade Detail
+12.3 Assets & Export
+• All icons used: exported as SVG at 24dp (and 20dp variant)
+• App icon: 1024×1024px PNG, plus all iOS and Android required sizes
+• Splash screen asset: exported at 1×, 2×, 3× for both iOS and Android
+• Onboarding illustrations: SVG (scalable) format
+• Empty state illustrations: SVG format
+• Loading skeleton examples: as Figma prototypes or annotated reference frames
+12.4 Documentation in Figma
+• Annotations on every screen: spacing values, interaction notes, state descriptions
+• Transition and animation notes on the prototype connections (timing, easing, haptics)
+• Dark mode: colour swap notes showing Light → Dark token changes
+• Handoff-ready: all elements using named styles (no raw hex values in Figma except in the Style
+Library)
+PipPal UI/UX Specification — End of Document
+
+-- 33 of 33 --
+
