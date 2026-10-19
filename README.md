@@ -1,4 +1,4 @@
-# pippal
+# PipPal
 
 A new Flutter project.
 
