@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="_ds/modernist-049f7010-140d-4900-b1ac-c4753f7da058/styles.css">
+<script src="_ds/modernist-049f7010-140d-4900-b1ac-c4753f7da058/_ds_bundle.js"></script>
+<style>body{margin:0;background:var(--color-bg)}a{color:var(--color-accent-700)}a:hover{color:var(--color-accent)}</style>
+</helmet>
+<div style="max-width:960px;margin:0 auto;padding:56px 32px 96px;font-family:var(--font-body);color:var(--color-text)">
+
+  <div style="display:flex;justify-content:space-between;align-items:baseline;border-bottom:2px solid var(--color-divider);padding-bottom:12px">
+    <span style="font:600 12px/1 var(--font-heading);letter-spacing:.14em;text-transform:uppercase">PipPal · Trading Journal</span>
+    <span style="font:400 12px/1 var(--font-heading);letter-spacing:.08em;color:var(--color-accent)">Pre-design brief · v0</span>
+  </div>
+
+  <h1 style="font:600 46px/1.05 var(--font-heading);margin:36px 0 16px;max-width:18ch;letter-spacing:-.02em">Design direction before we draw anything.</h1>
+  <p style="font:400 17px/1.6 var(--font-body);max-width:62ch;margin:0 0 44px;color:var(--color-neutral-700);text-wrap:pretty">I read the 33-page specification and researched how the apps it names actually behave on mobile today. Below is what I take as given, what the research changes, and the decisions I need from you before building. Nothing here is designed yet — the screens come after you answer the questions in chat.</p>
+
+  <div style="height:2px;background:var(--color-divider);margin:0 0 40px"></div>
+
+  <h2 style="font:600 13px/1 var(--font-heading);letter-spacing:.14em;text-transform:uppercase;color:var(--color-accent);margin:0 0 24px">01 · What the spec already settles</h2>
+  <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--color-divider);margin:0 0 56px">
+    <div style="background:var(--color-bg);padding:20px 22px"><div style="font:500 15px/1.4 var(--font-heading);margin-bottom:6px">Four tabs, one FAB</div><p style="font:400 14px/1.55 var(--font-body);margin:0;color:var(--color-neutral-700)">Dashboard · Journal · Calendar · Analytics. Log Trade is a two-step bottom sheet at 85% height, never a pushed screen.</p></div>
+    <div style="background:var(--color-bg);padding:20px 22px"><div style="font:500 15px/1.4 var(--font-heading);margin-bottom:6px">Warm, not cold</div><p style="font:400 14px/1.55 var(--font-body);margin:0;color:var(--color-neutral-700)">Off-white #F5F1E8 ground, white cards, 1px warm borders, no shadows outside modals. "A Notion workspace built to track trades."</p></div>
+    <div style="background:var(--color-bg);padding:20px 22px"><div style="font:500 15px/1.4 var(--font-heading);margin-bottom:6px">Crimson is the brand, not the loss</div><p style="font:400 14px/1.55 var(--font-body);margin:0;color:var(--color-neutral-700)">#C14953 does double duty as primary CTA and loss indicator. Emerald #2A9D5C is profit, amber #D4854A is break-even.</p></div>
+    <div style="background:var(--color-bg);padding:20px 22px"><div style="font:500 15px/1.4 var(--font-heading);margin-bottom:6px">15 screens, 390×844</div><p style="font:400 14px/1.55 var(--font-body);margin:0;color:var(--color-neutral-700)">Splash through Settings, plus empty, loading and dark-mode variants for the five core screens.</p></div>
+  </div>
+
+  <h2 style="font:600 13px/1 var(--font-heading);letter-spacing:.14em;text-transform:uppercase;color:var(--color-accent);margin:0 0 24px">02 · What the research adds</h2>
+  <div style="display:flex;flex-direction:column;gap:0;border-top:2px solid var(--color-divider);margin-bottom:56px">
+    <div style="display:grid;grid-template-columns:44px 1fr 200px;gap:20px;padding:20px 0;border-bottom:1px solid var(--color-border)">
+      <span style="font:600 22px/1 var(--font-heading);color:var(--color-accent)">01</span>
+      <div><div style="font:500 16px/1.4 var(--font-heading);margin-bottom:5px">Friction is the whole product risk</div><p style="font:400 14px/1.55 var(--font-body);margin:0;color:var(--color-neutral-700);max-width:52ch">Every source names the same failure: traders abandon journals within weeks because manual entry is tedious, and at 5+ trades a day they start skipping fields. PipPal is manual by design — no broker sync — so the two-step sheet is the single most important screen in the app, not the dashboard.</p></div>
+      <span style="font:400 12px/1.5 var(--font-body);color:var(--color-text-muted, var(--color-neutral-600))">TradeZella guide, 2026 · tradetanto.com · smctradeonline.com</span>
+    </div>
+    <div style="display:grid;grid-template-columns:44px 1fr 200px;gap:20px;padding:20px 0;border-bottom:1px solid var(--color-border)">
+      <span style="font:600 22px/1 var(--font-heading);color:var(--color-accent)">02</span>
+      <div><div style="font:500 16px/1.4 var(--font-heading);margin-bottom:5px">Three numbers, not nine</div><p style="font:400 14px/1.55 var(--font-body);margin:0;color:var(--color-neutral-700);max-width:52ch">Practitioner guidance converges on win rate, average R and profit factor as the only metrics worth surfacing first. The spec's Analytics screen asks for nine cards in a horizontal scroller — worth questioning, since a dashboard nobody can read in five seconds gets abandoned too.</p></div>
+      <span style="font:400 12px/1.5 var(--font-body);color:var(--color-text-muted, var(--color-neutral-600))">edgeflo.com · gaspntrader.com</span>
+    </div>
+    <div style="display:grid;grid-template-columns:44px 1fr 200px;gap:20px;padding:20px 0;border-bottom:1px solid var(--color-border)">
+      <span style="font:600 22px/1 var(--font-heading);color:var(--color-accent)">03</span>
+      <div><div style="font:500 16px/1.4 var(--font-heading);margin-bottom:5px">Statistics need ~30–50 trades</div><p style="font:400 14px/1.55 var(--font-body);margin:0;color:var(--color-neutral-700);max-width:52ch">Basic patterns need 30–50 trades; confident decisions need 100+. The spec unlocks Analytics at 5 trades. The design should show provisional numbers honestly rather than presenting a 5-trade win rate as fact.</p></div>
+      <span style="font:400 12px/1.5 var(--font-body);color:var(--color-text-muted, var(--color-neutral-600))">gaspntrader.com, 2026</span>
+    </div>
+    <div style="display:grid;grid-template-columns:44px 1fr 200px;gap:20px;padding:20px 0;border-bottom:1px solid var(--color-border)">
+      <span style="font:600 22px/1 var(--font-heading);color:var(--color-accent)">04</span>
+      <div><div style="font:500 16px/1.4 var(--font-heading);margin-bottom:5px">Pip maths is not one formula</div><p style="font:400 14px/1.55 var(--font-body);margin:0;color:var(--color-neutral-700);max-width:52ch">Pip size is 0.0001 for most pairs, 0.01 for JPY pairs and gold, 0.001 for silver — and pip value depends on lot size and account currency. The sheet's live "+48 pips | $96.00" readout needs the instrument to drive decimal places, and needs a graceful state when the pair is unknown.</p></div>
+      <span style="font:400 12px/1.5 var(--font-body);color:var(--color-text-muted, var(--color-neutral-600))">forexpipcalculator.com · myfxbook · infinityalgo</span>
+    </div>
+    <div style="display:grid;grid-template-columns:44px 1fr 200px;gap:20px;padding:20px 0;border-bottom:1px solid var(--color-border)">
+      <span style="font:600 22px/1 var(--font-heading);color:var(--color-accent)">05</span>
+      <div><div style="font:500 16px/1.4 var(--font-heading);margin-bottom:5px">The calendar is the hook</div><p style="font:400 14px/1.55 var(--font-body);margin:0;color:var(--color-neutral-700);max-width:52ch">Across competitors the green/red month grid is the most-cited feature, and the most-cited gap is a day cell that does nothing when tapped. The spec's day-detail drawer is the right call and should be built early, not last.</p></div>
+      <span style="font:400 12px/1.5 var(--font-body);color:var(--color-neutral-600)">TraderSync reviews · TradesViz · Tradevia</span>
+    </div>
+  </div>
+
+  <h2 style="font:600 13px/1 var(--font-heading);letter-spacing:.14em;text-transform:uppercase;color:var(--color-accent);margin:0 0 24px">03 · The one conflict I cannot resolve alone</h2>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-bottom:20px">
+    <div style="border:1px solid var(--color-border);padding:22px">
+      <div style="font:600 11px/1 var(--font-heading);letter-spacing:.12em;text-transform:uppercase;color:var(--color-neutral-600);margin-bottom:12px">Spec tokens</div>
+      <div style="display:flex;gap:0;margin-bottom:14px;height:36px">
+        <div style="flex:1;background:#F5F1E8"></div><div style="flex:1;background:#E5DCC5"></div><div style="flex:1;background:#848FA5"></div><div style="flex:1;background:#C14953"></div><div style="flex:1;background:#2A9D5C"></div><div style="flex:1;background:#2D2D2A"></div>
+      </div>
+      <p style="font:400 14px/1.55 var(--font-body);margin:0;color:var(--color-neutral-700)">Inter, 12px radii, warm cream, soft borders. Client-selected, documented down to hex, and what the Flutter developer will build against.</p>
+    </div>
+    <div style="border:1px solid var(--color-border);padding:22px">
+      <div style="font:600 11px/1 var(--font-heading);letter-spacing:.12em;text-transform:uppercase;color:var(--color-neutral-600);margin-bottom:12px">Modernist (attached to this project)</div>
+      <div style="display:flex;gap:0;margin-bottom:14px;height:36px">
+        <div style="flex:1;background:var(--color-bg)"></div><div style="flex:1;background:var(--color-neutral-200)"></div><div style="flex:1;background:var(--color-accent-200)"></div><div style="flex:1;background:var(--color-accent)"></div><div style="flex:1;background:var(--color-neutral-700)"></div><div style="flex:1;background:var(--color-text)"></div>
+      </div>
+      <p style="font:400 14px/1.55 var(--font-body);margin:0;color:var(--color-neutral-700)">Archivo, zero radius, 2px rules, near-mono red on light ground. Sharper and more editorial — this brief is set in it.</p>
+    </div>
+  </div>
+  <p style="font:400 15px/1.6 var(--font-body);max-width:62ch;margin:0 0 56px;color:var(--color-neutral-700);text-wrap:pretty">They want opposite things: one softens, the other sharpens. My recommendation is to build PipPal on the spec's tokens — they are the client's brand and the developer's contract — and borrow only Modernist's discipline: flush-left labels, honest rules instead of decorative shadows, and restraint with the accent. But this is your call, and it is the first question in the form.</p>
+
+  <h2 style="font:600 13px/1 var(--font-heading);letter-spacing:.14em;text-transform:uppercase;color:var(--color-accent);margin:0 0 24px">04 · Proposed build order</h2>
+  <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--color-divider);margin-bottom:22px">
+    <div style="background:var(--color-bg);padding:18px 20px"><div style="font:600 12px/1 var(--font-heading);color:var(--color-accent);margin-bottom:8px">STEP 1</div><div style="font:500 15px/1.35 var(--font-heading);margin-bottom:6px">Foundations</div><p style="font:400 13px/1.5 var(--font-body);margin:0;color:var(--color-neutral-700)">Tokens, type scale, buttons, inputs, cards, tags, nav — as a live component sheet.</p></div>
+    <div style="background:var(--color-bg);padding:18px 20px"><div style="font:600 12px/1 var(--font-heading);color:var(--color-accent);margin-bottom:8px">STEP 2</div><div style="font:500 15px/1.35 var(--font-heading);margin-bottom:6px">The core four</div><p style="font:400 13px/1.5 var(--font-body);margin:0;color:var(--color-neutral-700)">Dashboard, Journal, Calendar, Analytics in a working iPhone frame with real tab switching.</p></div>
+    <div style="background:var(--color-bg);padding:18px 20px"><div style="font:600 12px/1 var(--font-heading);color:var(--color-accent);margin-bottom:8px">STEP 3</div><div style="font:500 15px/1.35 var(--font-heading);margin-bottom:6px">Log Trade + Detail</div><p style="font:400 13px/1.5 var(--font-body);margin:0;color:var(--color-neutral-700)">The two-step sheet with live pip maths, then Trade Detail and its edit mode.</p></div>
+    <div style="background:var(--color-bg);padding:18px 20px"><div style="font:600 12px/1 var(--font-heading);color:var(--color-accent);margin-bottom:8px">STEP 4</div><div style="font:500 15px/1.35 var(--font-heading);margin-bottom:6px">Edges</div><p style="font:400 13px/1.5 var(--font-body);margin:0;color:var(--color-neutral-700)">Auth and onboarding, empty and loading states, settings, dark mode.</p></div>
+  </div>
+  <p style="font:400 15px/1.6 var(--font-body);max-width:62ch;margin:0 0 56px;color:var(--color-neutral-700)">One design component per step, each shown to you before the next begins. Answer the form in chat and I will start on step one.</p>
+
+  <div style="height:2px;background:var(--color-divider);margin-bottom:14px"></div>
+  <p style="font:400 13px/1.5 var(--font-body);margin:0;color:var(--color-neutral-600)">Sources are named inline. Illustrations, the logo and the candlestick character are placeholders until you supply real assets — I can draw wireframe stand-ins, but I cannot generate the artwork the spec asks for.</p>
+
+</div>
+</x-dc>
+</body>
+</html>
